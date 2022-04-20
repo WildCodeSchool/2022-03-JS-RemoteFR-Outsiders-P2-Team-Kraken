@@ -32,7 +32,8 @@ body {
   color: white;
   display: flex;
   align-items: flex-start;
-  justify-content: center;
+  justify-content: flex-start;
+  flex-direction: column;
 }
 
 h1 {
@@ -77,6 +78,11 @@ h1,
   transform: translate(-50%);
   position: absolute;
   bottom: 0;
+}
+
+.helpicon {
+  height: 1000px;
+  font-color: wheat;
 }
 
 /*******************************************/
