@@ -1,56 +1,226 @@
-body {
+/*******************************************/
+/*********** REGLAGES GENERAUX *************/
+/*******************************************/
+
+* {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  box-sizing: border-box;
+  list-style-type: none;
+  outline: none;
+  font-family: Impact, sans-serif;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+:root{
+  --color-title-bar: #950236;
 }
 
-.App {
+body {
+  background: url("./assets/cinema.jpg");
+  background-size: cover;
+  height: 100vh;
+  width: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: center;
+  overflow: hidden;
+}
+
+.screen {
+  background-color: rgb(0, 0, 0);
+  margin-top: 1%;
+  position: relative;
+  height: 68vh;
+  box-shadow: 0px 0px 0px 20px rgb(40, 40, 40);
+  border-radius: 2px;
+  color: white;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: column;
+}
+
+h1 {
+  letter-spacing: 4px;
+  text-shadow: 5px 7px 9px #000000;
+}
+
+h1,
+.title_bar {
+  text-align: center;
+  background-color: #950236;
+  width: 100%;
+  height: 8rem;
+  font-size: 6rem;
+}
+
+h2{
+  font-weight: 200;
+  letter-spacing: 0.1rem;
+  font-size: 3rem;
+}
+
+/*******************************************/
+/*********** BOUTONS ***********************/
+/*******************************************/
+
+.play_button {
+  background-color: black;
+  border: 6px solid #950235;
+  display: inline-block;
+  cursor: pointer;
+  color: #ffffff;
+  letter-spacing: 4px;
+  font-size: 34px;
+  padding: 16px 60px;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.play_button:hover {
+  background-color: #950235;
+  border: 6px solid #ffffff;
+}
+
+.container_button {
+  margin-bottom: 1rem;
+  left: 50%;
+  transform: translate(-50%);
+  position: absolute;
+  bottom: 0;
+}
+
+/*******************************************/
+/*********** CAROUSEL **********************/
+/*******************************************/
+
+#marquee {
+  padding: 0px 0px;
+  width: 100%;
+}
+
+#marquee .container {
+  overflow: hidden;
+  width: 100%;
+  height: 24rem;
+}
+
+#marquee .pic-container {
+  display: flex;
+  animation: marquee 120s infinite linear;
+}
+
+#marquee .pic-container .pic {
+  flex-basis: 15%;
+  flex-shrink: 0;
+}
+
+#marquee img {
+  width: 100%;
+  object-fit: cover;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+/*
+** Configuration
+*/
+
+/*
+** CardConfig
+*/
+
+.CardConfig {
+  -webkit-perspective: 150rem;
+          perspective: 150rem;
+  -moz-perspective: 150rem;
+  position: relative;
+  height: 25rem;
+  width: 20rem;
+}
+
+.CardConfig h4{
+  font-size: 3rem;
+  font-weight: 200;
+  margin-top: 3rem;
+}
+
+.CardConfig p{
+  letter-spacing: 0.2rem;
+  font-size: 1.5rem;
+  font-weight: 200;
+}
+
+.CardConfig__side {
+  border: 1px solid var(--color-title-bar);
+  height: 25rem;
+  -webkit-transition: all 0.8s ease;
+  transition: all 0.8s ease;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  border-radius: 3px;
+  overflow: hidden;
+  -webkit-box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.15);
+          box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.15);
+
+}
+
+
+.CardConfig__side--back {
+  -webkit-transform: rotateY(180deg);
+          transform: rotateY(180deg);
+  background: linear-gradient(-45deg, var(--color-title-bar), var(--color-title-bar));
+}
+
+.CardConfig:hover .CardConfig__side--front
+{
+  -webkit-transform: rotateY(-180deg);
+          transform: rotateY(-180deg);
+}
+
+.CardConfig:hover .CardConfig__side--back {
+  -webkit-transform: rotateY(0);
+          transform: rotateY(0);
+}
+
+.CardConfig__cta {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  width: 90%;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+
+.select_button {
+  margin-top: 2rem;
+  background-color: black;
+  border: 6px solid var(--color-title-bar);
+  display: inline-block;
+  cursor: pointer;
+  color: #ffffff;
+  letter-spacing: 0.2rem;
+  font-size: 1.5rem;
+  padding: 1rem 1rem;
+  text-decoration: none;
+  transition: 0.3s;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-button {
-  font-size: calc(10px + 2vmin);
+.select_button:hover {
+  background-color: var(--color-title-bar);
+  border: 6px solid #ffffff;
 }

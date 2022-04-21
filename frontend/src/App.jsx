@@ -1,17 +1,22 @@
 import React from "react";
-import genFilm from "./utils/fonctions";
+import Home from "./pages/Home";
+// import Configuration from "./pages/configuration";
+// import GetMovie from "@components/GetMovie"
+// import axios from "axios";
 
 import "./App.css";
 
 function App() {
-  // On génère un film aléatoire grâce à genFilm
-  const ficheFilm = genFilm(14);
-  // On génère un second film aléatoire grâce à genFilm
-  const ficheFilm2 = genFilm(14);
-  // On affiche ce qu'on veut
+  const [pseudo, setPseudo] = React.useState("");
+
+  const handlePseudoChange = (e) => {
+    setPseudo(e.target.value);
+  };
+  console.warn(pseudo);
+
   return (
     <div className="App">
-      film 1 : {ficheFilm.titre} - film 2 : {ficheFilm2.titre}
+      <Home pseudo={pseudo} handlePseudoChange={handlePseudoChange} />
     </div>
   );
 }
