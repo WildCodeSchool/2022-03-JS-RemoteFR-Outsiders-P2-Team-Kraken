@@ -20,6 +20,7 @@
     "import"
   ],
   "rules": {
+    "react/prop-types": 0,
     "no-console": "off",
     "no-restricted-syntax": [
       "error",
