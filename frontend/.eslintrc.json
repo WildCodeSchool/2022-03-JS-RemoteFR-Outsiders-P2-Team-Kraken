@@ -15,7 +15,10 @@
     "ecmaVersion": "latest",
     "sourceType": "module"
   },
-  "plugins": ["react", "import"],
+  "plugins": [
+    "react",
+    "import"
+  ],
   "rules": {
     "react/prop-types": 0,
     "no-console": "off",
@@ -38,7 +41,10 @@
           "@pages": "./src/pages",
           "@services": "./src/services"
         },
-        "extensions": [".js", ".jsx"]
+        "extensions": [
+          ".js",
+          ".jsx"
+        ]
       }
     }
   }

@@ -15,6 +15,8 @@
   --color-title-bar: #950236;
 }
 
+
+
 body {
   background: url("./assets/cinema.jpg");
   background-size: cover;
@@ -90,6 +92,11 @@ h2{
   bottom: 0;
 }
 
+.helpicon {
+  height: 1000px;
+  font-color: wheat;
+}
+
 /*******************************************/
 /*********** CAROUSEL **********************/
 /*******************************************/
@@ -120,16 +127,6 @@ h2{
   object-fit: cover;
 }
 
-@keyframes marquee {
-  0% {
-    transform: translateX(0);
-  }
-
-  100% {
-    transform: translateX(-100%);
-  }
-}
-
 /*
 ** Configuration
 */
@@ -145,6 +142,16 @@ h2{
   position: relative;
   height: 25rem;
   width: 20rem;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-100%);
+  }
 }
 
 .CardConfig h4{

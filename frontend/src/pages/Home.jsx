@@ -1,6 +1,7 @@
 import React from "react";
-import "../App.css";
+import HomeContent from "../components/HomeContent";
 import Configuration from "./Configuration";
+import "../App.css";
 
 function Home({ pseudo, handlePseudoChange }) {
   return (
@@ -13,7 +14,7 @@ function Home({ pseudo, handlePseudoChange }) {
           pseudo={pseudo}
           handlePseudoChange={handlePseudoChange}
         />
-      </div>
+        <HomeContent />
     </div>
   );
 }
