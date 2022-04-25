@@ -46,6 +46,7 @@ const getRandomMovie = () => {
       .catch((error) => {
         // handle error
         console.warn(error);
+        setidMovie(3);
       });
   }, [isMovieValid]);
 
@@ -63,11 +64,13 @@ const getRandomMovie = () => {
         return response.data;
       })
       .then((data) => {
+        const isDocumentary = data.genres.find((movie) => movie.id === 99);
         if (
           data.budget !== 0 &&
           data.poster_path !== "" &&
           data.revenue !== 0 &&
-          data.runtime > 75
+          data.runtime > 75 &&
+          !isDocumentary
         ) {
           const tempArray = [];
           tempArray.push(
