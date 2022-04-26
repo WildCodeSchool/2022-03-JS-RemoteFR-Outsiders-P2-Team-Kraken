@@ -1,36 +1,27 @@
-import Counter from "@components/Counter";
-import logo from "@assets/logo.svg";
+import React from "react";
+import "../App.css";
+// import HomeContent from "../components/HomeContent";
+import TwoMovies from "../components/TwoMovies";
+import getRandomQuestion from "@services/getRandomQuestion";
 
-export default function Home() {
+function Home() {
+  const question = getRandomQuestion(2);
+
   return (
-    <header className="App-header">
-      <img src={logo} className="App-logo" alt="logo" />
-      <p>Hello Vite + React !</p>
+    <div className="screen">
+      <div className="title_bar">
+        <p
+        style={{
+          fontSize:"3rem",
+          marginTop: "2rem"}}>{question.question}</p>
+      </div>
 
-      <Counter />
-
-      <p>
-        Edit <code>App.jsx</code> and save to test HMR updates.
-      </p>
-      <p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-        {" | "}
-        <a
-          className="App-link"
-          href="https://vitejs.dev/guide/features.html"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Vite Docs
-        </a>
-      </p>
-    </header>
+      <div className="game_content"
+      style={{ width: "100%" }}>
+        <TwoMovies />
+      </div>
+    </div>
   );
 }
+
+export default Home;
