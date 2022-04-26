@@ -56,6 +56,12 @@ h1,
   font-size: 6rem;
 }
 
+.title_bar{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 h2{
   font-weight: 200;
   letter-spacing: 0.1rem;

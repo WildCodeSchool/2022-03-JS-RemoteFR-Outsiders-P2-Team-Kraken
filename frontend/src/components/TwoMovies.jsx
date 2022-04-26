@@ -4,7 +4,7 @@ import getRandomQuestion from "../services/getRandomQuestion";
 import Affiche from "./Affiche";
 import checkAnwser from "../services/checkAnswer";
 
-function TwoMovies() {
+function TwoMovies({ updateTitleMain }) {
   const [idClicked, setIdClicked] = React.useState(0);
   const [question, setQuestion] = React.useState({});
 
@@ -14,6 +14,10 @@ function TwoMovies() {
   React.useEffect(() => {
     setQuestion(getRandomQuestion(2));
   }, []);
+
+  React.useEffect(() => {
+    updateTitleMain([question.question, "question"]);
+  }, [question]);
 
   checkAnwser(film1[0], film2[0], idClicked, question.type, question.topic);
 

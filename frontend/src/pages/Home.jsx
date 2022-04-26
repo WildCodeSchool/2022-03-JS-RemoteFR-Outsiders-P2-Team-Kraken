@@ -6,7 +6,10 @@ import TwoMovies from "../components/TwoMovies";
 import "../App.css";
 
 function Home() {
-  const [titleMain, setTitleMain] = React.useState("MOVIZZ");
+  const [titleMain, setTitleMain] = React.useState(["MOVIZZ", "main"]);
+  const updateTitleMain = (newTitle) => {
+    setTitleMain(newTitle);
+  };
 
   /*  const [pseudo, setPseudo] = React.useState("");
 
@@ -23,7 +26,7 @@ function Home() {
           pseudo={pseudo}
           handlePseudoChange={handlePseudoChange}
   /> */}
-        <TwoMovies titleMain={titleMain} setTitleMain={setTitleMain} />
+        <TwoMovies updateTitleMain={updateTitleMain} titleMain={titleMain} />
       </div>
     </div>
   );

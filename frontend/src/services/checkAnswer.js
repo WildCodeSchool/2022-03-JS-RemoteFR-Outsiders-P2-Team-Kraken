@@ -74,16 +74,24 @@ const checkAnswer = (idFilm1, idFilm2, idClicked, type, topic) => {
 
   React.useEffect(() => {
     switch (true) {
-      case type === "MAX" && film1 >= film2 && idClicked === idFilm1:
+      case type === "MAX" &&
+        film1 >= film2 &&
+        parseInt(idClicked, 10) === idFilm1:
         console.warn(`Bravo, ${film1} > ${film2}`);
         break;
-      case type === "MAX" && film1 <= film2 && idClicked === idFilm2:
+      case type === "MAX" &&
+        film1 <= film2 &&
+        parseInt(idClicked, 10) === idFilm2:
         console.warn(`Bravo !, ${film1} > ${film2}`);
         break;
-      case type === "MIN" && film1 <= film2 && idClicked === idFilm1:
+      case type === "MIN" &&
+        film1 <= film2 &&
+        parseInt(idClicked, 10) === idFilm1:
         console.warn(`Bravo !, ${film1} < ${film2}`);
         break;
-      case type === "MIN" && film1 >= film2 && idClicked === idFilm2:
+      case type === "MIN" &&
+        film1 >= film2 &&
+        parseInt(idClicked, 10) === idFilm2:
         console.warn(`Bravo !, ${film1} < ${film2}`);
         break;
       default:

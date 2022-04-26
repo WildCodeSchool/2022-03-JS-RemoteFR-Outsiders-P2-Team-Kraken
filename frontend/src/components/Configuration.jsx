@@ -41,9 +41,6 @@ function Configuration({ pseudo, handlePseudoChange }) {
           </h2>
         </label>
         <div style={{ textAlign: "center", margin: "1rem 0 " }}>
-          <h2 style={{ alignItems: "center" }}>
-            Choisissez votre mode de jeu :
-          </h2>
           <div
             style={{
               display: "flex",
@@ -53,14 +50,16 @@ function Configuration({ pseudo, handlePseudoChange }) {
           >
             <CardConfig
               type="texte"
-              title="Classique"
+              title={`Mode de jeu
+              Classique`}
               explication={explicationClassique}
               ready
               handleClickSubmit={handleClickSubmit}
             />
             <CardConfig
               type="texte"
-              title="Personnalisé"
+              title={`Mode de jeu
+              Personnalisé`}
               explication={explicationPersonnalise}
               ready={false}
               handleClickSubmit={handleClickSubmit}
