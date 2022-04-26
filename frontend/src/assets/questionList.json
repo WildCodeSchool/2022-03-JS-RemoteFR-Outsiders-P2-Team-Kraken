@@ -1,15 +1,15 @@
 [
   {
     "id": 1,
-    "topic": "release-date",
-    "type": "MIN",
+    "topic": "release_date",
+    "type": "MAX",
     "question": "Quel film est le plus récent ?",
     "nbfilms": "2"
   },
   {
     "id": 2,
-    "topic": "release-date",
-    "type": "MAX",
+    "topic": "release_date",
+    "type": "MIN",
     "question": "Quel film est le plus ancien ?",
     "nbfilms": "2"
   },
