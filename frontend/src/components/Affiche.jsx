@@ -1,6 +1,6 @@
 import React from "react";
 
-function CardConfig({ id, titre, affiche, setIdClicked }) {
+function Affiche({ id, titre, affiche, setIdClicked }) {
   const handleChooseOneFilm = (e) => {
     setIdClicked(e.target.value);
   };
@@ -14,7 +14,6 @@ function CardConfig({ id, titre, affiche, setIdClicked }) {
         <div className="CardConfig__cta">
           <div>
             <h4>{titre}</h4>
-
             <button
               type="button"
               value={id}
@@ -30,4 +29,4 @@ function CardConfig({ id, titre, affiche, setIdClicked }) {
   );
 }
 
-export default CardConfig;
+export default Affiche;

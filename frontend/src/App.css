@@ -9,13 +9,10 @@
   list-style-type: none;
   outline: none;
   font-family: Impact, sans-serif;
-}
 
 :root{
   --color-title-bar: #950236;
 }
-
-
 
 body {
   background: url("./assets/cinema.jpg");
@@ -242,6 +239,7 @@ h2{
   transition: 0.3s;
 }
 
+
 .select_button:hover {
   background-color: var(--color-title-bar);
   border: 6px solid #ffffff;
@@ -287,4 +285,4 @@ h2{
   right: 10px;
   color: #585858;
   text-decoration: none;
-}
+  }
