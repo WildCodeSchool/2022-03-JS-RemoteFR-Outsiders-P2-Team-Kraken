@@ -1,121 +1,141 @@
 [
   {
     "id": 1,
-    "topic": "release-date",
+    "topic": "release_date",
+    "type": "MAX",
     "question": "Quel film est le plus récent ?",
     "nbfilms": "2"
   },
   {
     "id": 2,
-    "topic": "release-date",
+    "topic": "release_date",
+    "type": "MIN",
     "question": "Quel film est le plus ancien ?",
     "nbfilms": "2"
   },
   {
     "id": 3,
     "topic": "budget",
+    "type": "MAX",
     "question": "Quel film a le plus gros budget ?",
     "nbfilms": "2"
   },
   {
     "id": 4,
     "topic": "budget",
+    "type": "MIN",
     "question": "Quel film a le plus petit buget ?",
     "nbfilms": "2"
   },
   {
     "id": 5,
     "topic": "revenue",
+    "type": "MAX",
     "question": "Quel film a eu le plus de succès au box-office ?",
     "nbfilms": "2"
   },
   {
     "id": 6,
     "topic": "revenue",
+    "type": "MIN",
     "question": "Quel film a eu le moins de succès au box-office ?",
     "nbfilms": "2"
   },
   {
     "id": 7,
     "topic": "profitability",
+    "type": "MAX",
     "question": "Quel film a été le plus rentable ?",
     "nbfilms": "2"
   },
   {
     "id": 8,
     "topic": "profitability",
+    "type": "MIN",
     "question": "Quel film a été le moins rentable ?",
     "nbfilms": "2"
   },
   {
     "id": 9,
     "topic": "runtime",
+    "type": "MAX",
     "question": "Quel film dure le plus longtemps ?",
     "nbfilms": "2"
   },
   {
     "id": 10,
     "topic": "runtime",
+    "type": "MIN",
     "question": "Quel film dure le moins longtemps ?",
     "nbfilms": "2"
   },
   {
     "id": 11,
     "topic": "release-date",
+    "type": "DESC",
     "question": "Classez les films du plus ancien au plus récent !",
     "nbfilms": "multiple"
   },
   {
     "id": 12,
     "topic": "release-date",
+    "type": "ASC",
     "question": "Classez les films du plus récent au plus ancien !",
     "nbfilms": "multiple"
   },
   {
     "id": 13,
     "topic": "budget",
+    "type": "ASC",
     "question": "Classez les films du plus petit au plus gros budget !",
     "nbfilms": "multiple"
   },
   {
     "id": 14,
     "topic": "budget",
+    "type": "DESC",
     "question": "Classez les films du plus gros au plus petit budget !",
     "nbfilms": "multiple"
   },
   {
     "id": 15,
     "topic": "revenue",
+    "type": "ASC",
     "question": "Classez les films du plus petit au plus gros succès du box-office !",
     "nbfilms": "multiple"
   },
   {
     "id": 16,
     "topic": "revenue",
+    "type": "DESC",
     "question": "Classez les films du plus gros au plus petit succès du box-office !",
     "nbfilms": "multiple"
   },
   {
     "id": 17,
     "topic": "profitability",
+    "type": "ASC",
     "question": "Classez les films du moins rentable au plus rentable !",
     "nbfilms": "multiple"
   },
   {
     "id": 18,
     "topic": "profitability",
+    "type": "DESC",
     "question": "Classez les films du plus rentable au moins rentable !",
     "nbfilms": "multiple"
   },
   {
     "id": 19,
     "topic": "runtime",
+    "type": "ASC",
     "question": "Classez les films du plus court au plus long !",
     "nbfilms": "multiple"
   },
   {
     "id": 20,
     "topic": "runtime",
+    "type": "DESC",
     "question": "Classez les films du plus long au plus court !",
     "nbfilms": "multiple"
   }

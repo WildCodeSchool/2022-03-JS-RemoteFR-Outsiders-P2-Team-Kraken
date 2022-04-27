@@ -27,9 +27,6 @@ const getRandomMovie = () => {
     const randomPage = Math.round(Math.random() * 499) + 1;
     const randomMovie = Math.round(Math.random() * 19) + 1;
     const urlRandomPage = `https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&language=fr-FR&page=${randomPage}`;
-
-    console.error(`${randomPage} - ${randomMovie} - ${urlRandomPage}`);
-
     axios
       .get(urlRandomPage)
       .then((response) => {
@@ -46,6 +43,7 @@ const getRandomMovie = () => {
       .catch((error) => {
         // handle error
         console.warn(error);
+        setidMovie(3);
       });
   }, [isMovieValid]);
 
@@ -63,11 +61,13 @@ const getRandomMovie = () => {
         return response.data;
       })
       .then((data) => {
+        const isDocumentary = data.genres.find((movie) => movie.id === 99);
         if (
           data.budget !== 0 &&
           data.poster_path !== "" &&
           data.revenue !== 0 &&
-          data.runtime > 75
+          data.runtime > 75 &&
+          !isDocumentary
         ) {
           const tempArray = [];
           tempArray.push(

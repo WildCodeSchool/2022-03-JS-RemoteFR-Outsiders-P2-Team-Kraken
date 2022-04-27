@@ -1,10 +1,15 @@
 import React from "react";
-import Dnd from "./pages/5-films";
-
+import Home from "@pages/Home";
 import "./App.css";
 
 function App() {
-  return <Dnd />;
+
+  return (
+    <div className="App">
+      <Home />
+    </div>
+  );
 }
 
 export default App;
+
