@@ -1,7 +1,8 @@
 import update from "immutability-helper";
 import { useCallback, useState, useEffect } from "react";
-import Card from "./Card-5-films";
 import getRandomMovie from "../services/getRandomMovie";
+import { Link } from "react-router-dom";
+import Card from "./Card-5-films";
 
 const style = {
   display: "flex",
@@ -90,7 +91,18 @@ function Container() {
     );
   }, []);
 
-  return <div style={style}>{cards.map((card, i) => renderCard(card, i))}</div>;
+  return (
+    <div>
+      <div style={style}> {cards.map((card, i) => renderCard(card, i))} </div>
+      <div className="validate_button">
+        <Link to="/game/two-movies">
+          <button type="button" className="play_button">
+            VALIDER
+          </button>
+        </Link>
+      </div>
+    </div>
+  );
 }
 
 export default Container;

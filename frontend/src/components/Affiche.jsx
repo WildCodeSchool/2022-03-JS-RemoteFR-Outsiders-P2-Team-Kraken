@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function Affiche({ id, titre, affiche, setIdClicked }) {
   const handleChooseOneFilm = (e) => {
@@ -14,14 +15,16 @@ function Affiche({ id, titre, affiche, setIdClicked }) {
         <div className="CardConfig__cta">
           <div>
             <h4>{titre}</h4>
-            <button
-              type="button"
-              value={id}
-              className="select_button"
-              onClick={handleChooseOneFilm}
-            >
-              Selectionner
-            </button>
+            <Link to="/game/five-movies">
+              <button
+                type="button"
+                value={id}
+                className="select_button"
+                onClick={handleChooseOneFilm}
+              >
+                Selectionner
+              </button>
+            </Link>
           </div>
         </div>
       </div>
