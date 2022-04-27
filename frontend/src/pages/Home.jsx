@@ -1,38 +1,36 @@
-import React from "react";
-import HomeContent from "../components/HomeContent";
-import Configuration from "../components/Configuration";
-import TitleBar from "../components/TitleBar";
-import TwoMovies from "../components/TwoMovies";
-import Dnd from "./5-films";
+import Counter from "@components/Counter";
+import logo from "@assets/logo.svg";
 
-import "../App.css";
-
-function Home() {
-  const [titleMain, setTitleMain] = React.useState(["MOVIZZ", "main"]);
-  const updateTitleMain = (newTitle) => {
-    setTitleMain(newTitle);
-  };
-
-  // INFO : Don't remove this comment please
-  const [pseudo, setPseudo] = React.useState("");
-  const handlePseudoChange = (e) => {
-    setPseudo(e.target.value);
-  };
-
+export default function Home() {
   return (
-    <div className="screen">
-      <TitleBar title={titleMain} />
-      <div className="game_content" style={{ width: "100%" }}>
-        <HomeContent />
-        <Configuration
-          pseudo={pseudo}
-          handlePseudoChange={handlePseudoChange}
-        />
-        <Dnd />
-        <TwoMovies updateTitleMain={updateTitleMain} titleMain={titleMain} />
-      </div>
-    </div>
+    <header className="App-header">
+      <img src={logo} className="App-logo" alt="logo" />
+      <p>Hello Vite + React !</p>
+
+      <Counter />
+
+      <p>
+        Edit <code>App.jsx</code> and save to test HMR updates.
+      </p>
+      <p>
+        <a
+          className="App-link"
+          href="https://reactjs.org"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Learn React
+        </a>
+        {" | "}
+        <a
+          className="App-link"
+          href="https://vitejs.dev/guide/features.html"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Vite Docs
+        </a>
+      </p>
+    </header>
   );
 }
-
-export default Home;
