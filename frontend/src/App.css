@@ -13,6 +13,7 @@
 
 :root {
   --color-title-bar: #950236;
+  --color-background: #000000;
 }
 
 body {
@@ -27,7 +28,7 @@ body {
 }
 
 .screen {
-  background-color: rgb(0, 0, 0);
+  background-color: var(--color-background);
   margin-top: 1%;
   position: relative;
   height: 68vh;
@@ -42,13 +43,13 @@ body {
 
 h1 {
   letter-spacing: 4px;
-  text-shadow: 5px 7px 9px #000000;
+  text-shadow: 5px 7px 9px var(--color-background);
 }
 
 h1,
 .title_bar {
   text-align: center;
-  background-color: #950236;
+  background-color: var(--color-title-bar);
   width: 100%;
   height: 8rem;
   font-size: 6rem;
@@ -57,7 +58,7 @@ h1,
 .title_bar {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
 }
 
 h2 {
@@ -66,13 +67,16 @@ h2 {
   font-size: 3rem;
 }
 
+p{
+  font-size: 1.5rem;
+}
 /*******************************************/
 /*********** BOUTONS ***********************/
 /*******************************************/
 
 .play_button {
-  background-color: black;
-  border: 6px solid #950235;
+  background-color: var(--color-background);
+  border: 6px solid  var(--color-title-bar);
   display: inline-block;
   cursor: pointer;
   color: #ffffff;
@@ -84,7 +88,7 @@ h2 {
 }
 
 .play_button:hover {
-  background-color: #950235;
+  background-color:  var(--color-title-bar);
   border: 6px solid #ffffff;
 }
 
@@ -114,7 +118,7 @@ h2 {
 #marquee .container {
   overflow: hidden;
   width: 100%;
-  height: 38rem;
+  height: 38vh;
 }
 
 #marquee .pic-container {
@@ -228,7 +232,7 @@ h2 {
 
 .select_button {
   margin-top: 2rem;
-  background-color: black;
+  background-color: var(--color-background);
   border: 6px solid var(--color-title-bar);
   display: inline-block;
   cursor: pointer;

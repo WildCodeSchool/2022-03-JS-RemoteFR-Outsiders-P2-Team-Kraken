@@ -1,14 +1,25 @@
 import update from "immutability-helper";
 import { useCallback, useState, useEffect } from "react";
 import Card from "./Card-5-films";
-import getRandomMovie from "../services/getRandomMovie";
+import checkAnswer5 from "../services/checkAnswer5";
+import getRandomQuestion from "../services/getRandomQuestion";
 
 const style = {
   display: "flex",
   justifyContent: "space-around",
 };
 
-function Container() {
+function Container({
+  updateTitleMain,
+  film1,
+  film2,
+  film3,
+  film4,
+  film5,
+  score,
+  updateScore,
+}) {
+  const [question, setQuestion] = useState({});
   const [cards, setCards] = useState([
     {
       id: 1,
@@ -32,11 +43,13 @@ function Container() {
     },
   ]);
 
-  const film1 = getRandomMovie();
-  const film2 = getRandomMovie();
-  const film3 = getRandomMovie();
-  const film4 = getRandomMovie();
-  const film5 = getRandomMovie();
+  useEffect(() => {
+    setQuestion(getRandomQuestion(5));
+  }, []);
+
+  useEffect(() => {
+    updateTitleMain([question.question, "question"]);
+  }, [question]);
 
   useEffect(() => {
     setCards([
@@ -84,13 +97,47 @@ function Container() {
         key={card.id}
         index={index}
         id={card.id}
+        id_api={card.id_api}
         text={card.text}
         moveCard={moveCard}
       />
     );
   }, []);
 
-  return <div style={style}>{cards.map((card, i) => renderCard(card, i))}</div>;
+  const [friseFilm, setFriseFilm] = useState([]);
+
+  useEffect(() => {
+    const tempFrise = [];
+    cards.map((card, i) => {
+      tempFrise.push(card.id_api);
+      return renderCard(card, i);
+    });
+    setFriseFilm(tempFrise);
+  }, [cards]);
+
+  const [isValidated, setIsValidated] = useState(false);
+  const handleOnClickValidation = () => {
+    setIsValidated(true);
+  };
+  checkAnswer5(friseFilm, question, score, updateScore, isValidated);
+
+
+  return (
+    <div>
+      <div style={style}>
+        {cards.map((card, i) => {
+          return renderCard(card, i);
+        })}
+      </div>
+      <button
+        type="button"
+        className="play_button"
+        onClick={handleOnClickValidation}
+      >
+        VALIDER
+      </button>
+    </div>
+  );
 }
 
 export default Container;

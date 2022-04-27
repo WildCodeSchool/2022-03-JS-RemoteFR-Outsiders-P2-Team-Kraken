@@ -72,7 +72,7 @@ function Card({ id, text, index, moveCard }) {
   drag(drop(ref));
   return (
     <div ref={ref} style={{ ...style, opacity }} data-handler-id={handlerId}>
-      <img className="img-5-films" alt="img-5-films" width="300px" src={text} />
+      <img className="img-5-films" alt="img-5-films" width="350px" src={text} />
     </div>
   );
 }
