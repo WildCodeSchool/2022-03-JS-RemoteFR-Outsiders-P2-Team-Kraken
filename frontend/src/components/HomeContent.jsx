@@ -23,8 +23,8 @@ function HomeContent() {
           <FontAwesomeIcon className="help_icon" icon={faQuestionCircle} />
         </div>
       </div>
-    </div >
-  )
+    </div>
+  );
 }
 
 export default HomeContent;

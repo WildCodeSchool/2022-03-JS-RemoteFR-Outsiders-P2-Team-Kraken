@@ -1,7 +1,7 @@
 import update from "immutability-helper";
 import { useCallback, useState, useEffect } from "react";
-import getRandomMovie from "../services/getRandomMovie";
 import { Link } from "react-router-dom";
+import getRandomMovie from "../services/getRandomMovie";
 import Card from "./Card-5-films";
 
 const style = {

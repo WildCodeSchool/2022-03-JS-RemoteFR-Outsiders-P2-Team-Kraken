@@ -25,14 +25,24 @@ function Home() {
       <div className="game_content" style={{ width: "100%" }}>
         <Routes>
           <Route path="/" element={<HomeContent />} />
-          <Route path="/configuration"
-            element={<Configuration
-              pseudo={pseudo}
-              handlePseudoChange={handlePseudoChange}
-            />} />
-          <Route path="/game/two-movies"
-            element={<TwoMovies updateTitleMain={updateTitleMain}
-              titleMain={titleMain} />} />
+          <Route
+            path="/configuration"
+            element={
+              <Configuration
+                pseudo={pseudo}
+                handlePseudoChange={handlePseudoChange}
+              />
+            }
+          />
+          <Route
+            path="/game/two-movies"
+            element={
+              <TwoMovies
+                updateTitleMain={updateTitleMain}
+                titleMain={titleMain}
+              />
+            }
+          />
           <Route path="/game/five-movies" element={<Dnd />} />
         </Routes>
       </div>
