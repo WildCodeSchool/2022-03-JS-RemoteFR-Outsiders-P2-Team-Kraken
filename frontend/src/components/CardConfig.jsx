@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function CardConfig({ title, explication, ready }) {
   return (
@@ -10,9 +11,16 @@ function CardConfig({ title, explication, ready }) {
         <div className="CardConfig__cta">
           <div>
             <p>{explication}</p>
-            <button type="button" className="select_button">
-              {ready ? "Selectionner" : "Non disponible"}
-            </button>
+            {ready ?
+              <Link to="/game/two-movies">
+                <button type="button" className="select_button">
+                  Sélectionner
+                </button>
+              </Link>
+              : <button type="button" className="select_button">
+                Non disponible
+              </button>
+            }
           </div>
         </div>
       </div>
