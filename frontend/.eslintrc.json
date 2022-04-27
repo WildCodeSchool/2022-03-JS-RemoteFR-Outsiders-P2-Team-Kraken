@@ -22,6 +22,7 @@
   "rules": {
     "react/prop-types": 0,
     "no-console": "off",
+    "no-param-reassign": 0,
     "no-restricted-syntax": [
       "error",
       {

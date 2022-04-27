@@ -27,7 +27,6 @@ const getRandomMovie = () => {
     const randomPage = Math.round(Math.random() * 499) + 1;
     const randomMovie = Math.round(Math.random() * 19) + 1;
     const urlRandomPage = `https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&language=fr-FR&page=${randomPage}`;
-
     axios
       .get(urlRandomPage)
       .then((response) => {

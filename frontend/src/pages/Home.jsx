@@ -3,6 +3,8 @@ import React from "react";
 // import Configuration from "../components/Configuration";
 import TitleBar from "../components/TitleBar";
 import TwoMovies from "../components/TwoMovies";
+import Dnd from "./5-films";
+
 import "../App.css";
 
 function Home() {
@@ -11,12 +13,14 @@ function Home() {
     setTitleMain(newTitle);
   };
 
+  // INFO : Don't remove this comment please
   /*  const [pseudo, setPseudo] = React.useState("");
 
   const handlePseudoChange = (e) => {
     setPseudo(e.target.value);
   };
 */
+  
   return (
     <div className="screen">
       <TitleBar title={titleMain} />
@@ -25,7 +29,8 @@ function Home() {
         <Configuration
           pseudo={pseudo}
           handlePseudoChange={handlePseudoChange}
-  /> */}
+        /> */}
+         <Dnd />
         <TwoMovies updateTitleMain={updateTitleMain} titleMain={titleMain} />
       </div>
     </div>
