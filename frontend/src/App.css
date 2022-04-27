@@ -1,287 +1,56 @@
-/*******************************************/
-/*********** REGLAGES GENERAUX *************/
-/*******************************************/
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  list-style-type: none;
-  outline: none;
-  font-family: Impact, sans-serif;
-}
-
-:root {
-  --color-title-bar: #950236;
-}
-
 body {
-  background: url("./assets/cinema.jpg");
-  background-size: cover;
-  height: 100vh;
-  width: 100%;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: center;
-  overflow: hidden;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-.screen {
-  background-color: rgb(0, 0, 0);
-  margin-top: 1%;
-  position: relative;
-  height: 68vh;
-  box-shadow: 0px 0px 0px 20px rgb(40, 40, 40);
-  border-radius: 2px;
-  color: white;
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
   display: flex;
-  align-items: flex-start;
-  justify-content: flex-start;
   flex-direction: column;
-}
-
-h1 {
-  letter-spacing: 4px;
-  text-shadow: 5px 7px 9px #000000;
-}
-
-h1,
-.title_bar {
-  text-align: center;
-  background-color: #950236;
-  width: 100%;
-  height: 8rem;
-  font-size: 6rem;
-}
-
-.title_bar {
-  display: flex;
   align-items: center;
   justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
 }
 
-h2 {
-  font-weight: 200;
-  letter-spacing: 0.1rem;
-  font-size: 3rem;
+.App-link {
+  color: #61dafb;
 }
 
-/*******************************************/
-/*********** BOUTONS ***********************/
-/*******************************************/
-
-.play_button {
-  background-color: black;
-  border: 6px solid #950235;
-  display: inline-block;
-  cursor: pointer;
-  color: #ffffff;
-  letter-spacing: 4px;
-  font-size: 34px;
-  padding: 16px 60px;
-  text-decoration: none;
-  transition: 0.3s;
-}
-
-.play_button:hover {
-  background-color: #950235;
-  border: 6px solid #ffffff;
-}
-
-.container_button {
-  margin-bottom: 1rem;
-  left: 50%;
-  transform: translate(-50%);
-  position: absolute;
-  bottom: 0;
-}
-
-.helpicon {
-  height: 1000px;
-  color: wheat;
-}
-
-/*******************************************/
-/*********** CAROUSEL **********************/
-/*******************************************/
-
-#marquee {
-  margin-top: 0.8rem;
-  padding: 0px 0px;
-  width: 100%;
-}
-
-#marquee .container {
-  overflow: hidden;
-  width: 100%;
-  height: 38rem;
-}
-
-#marquee .pic-container {
-  display: flex;
-  gap: 2rem;
-  animation: marquee 110s infinite linear;
-  height: 100%;
-}
-
-#marquee .pic-container .pic {
-  flex-shrink: 0;
-}
-
-#marquee img {
-  width: 100%;
-  object-fit: cover;
-  height: 100%;
-}
-
-/*
-** Configuration
-*/
-
-/*
-** CardConfig
-*/
-
-.CardConfig {
-  -webkit-perspective: 150rem;
-  perspective: 150rem;
-  -moz-perspective: 150rem;
-  position: relative;
-  height: 40rem;
-  width: 26.6rem;
-}
-
-.CardConfig img {
-  height: 100%;
-  margin: auto;
-  display: block;
-}
-
-@keyframes marquee {
-  0% {
-    transform: translateX(0);
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
   }
-
-  100% {
-    transform: translateX(-100%);
+  to {
+    transform: rotate(360deg);
   }
 }
 
-.CardConfig h4 {
-  font-size: 3rem;
-  font-weight: 200;
-  margin-top: 3rem;
-}
-
-.CardConfig p {
-  letter-spacing: 0.2rem;
-  font-size: 1.5rem;
-  font-weight: 200;
-}
-
-.CardConfig__side {
-  border: 1px solid var(--color-title-bar);
-  height: 40rem;
-  -webkit-transition: all 0.8s ease;
-  transition: all 0.8s ease;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-  border-radius: 3px;
-  overflow: hidden;
-  -webkit-box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.15);
-  box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.15);
-}
-
-.CardConfig__side--back {
-  -webkit-transform: rotateY(180deg);
-  transform: rotateY(180deg);
-  background: linear-gradient(
-    -45deg,
-    var(--color-title-bar),
-    var(--color-title-bar)
-  );
-}
-
-.CardConfig:hover .CardConfig__side--front {
-  -webkit-transform: rotateY(-180deg);
-  transform: rotateY(-180deg);
-}
-
-.CardConfig:hover .CardConfig__side--back {
-  -webkit-transform: rotateY(0);
-  transform: rotateY(0);
-}
-
-.CardConfig__cta {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  -webkit-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-  width: 90%;
-  text-align: center;
-}
-
-.select_button {
-  margin-top: 2rem;
-  background-color: black;
-  border: 6px solid var(--color-title-bar);
-  display: inline-block;
-  cursor: pointer;
-  color: #ffffff;
-  letter-spacing: 0.2rem;
-  font-size: 1.5rem;
-  padding: 1rem 1rem;
-  text-decoration: none;
-  transition: 0.3s;
-}
-
-.select_button:hover {
-  background-color: var(--color-title-bar);
-  border: 6px solid #ffffff;
-}
-
-.modal__answer {
-  visibility: hidden;
-  opacity: 0;
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(77, 77, 77, 0.7);
-  transition: all 0.4s;
-}
-
-.modal__answer:target {
-  visibility: visible;
-  opacity: 1;
-}
-
-.modal__answer__content {
-  border-radius: 4px;
-  position: relative;
-  width: 500px;
-  max-width: 90%;
-  background: #fff;
-  padding: 1em 2em;
-}
-
-.modal__answer__footer {
-  text-align: right;
-}
-
-.modal__answer__close {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  color: #585858;
-  text-decoration: none;
+button {
+  font-size: calc(10px + 2vmin);
 }
