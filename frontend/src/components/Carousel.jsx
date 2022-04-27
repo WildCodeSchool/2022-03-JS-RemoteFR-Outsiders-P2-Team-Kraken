@@ -1,5 +1,5 @@
 import React from "react";
-import getRandomMovie from "@services/getRandomMovie";
+import getRandomMovie from "../services/getRandomMovie";
 
 function Carousel() {
   return (
