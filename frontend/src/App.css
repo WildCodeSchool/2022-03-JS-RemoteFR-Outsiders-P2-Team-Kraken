@@ -132,6 +132,14 @@ p {
   flex-shrink: 0;
 }
 
+#marquee .pic{
+  background-image: url("./assets/loading.png");
+  background-size: cover;
+  background-position: center;
+  height: 38vh;
+  width: 25vh;
+}
+
 #marquee img {
   width: 100%;
   object-fit: cover;
@@ -198,6 +206,14 @@ p {
   overflow: hidden;
   -webkit-box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.15);
   box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.15);
+}
+
+.CardConfig__Affiche {
+background-image: url("./assets/loading.png");
+background-size: cover;
+background-position: center;
+height: 38vh;
+width: 25vh;
 }
 
 .CardConfig__side--back {
@@ -289,12 +305,19 @@ p {
   color: #585858;
   text-decoration: none;
 }
+.div-5-films {
+  background-image: url("./assets/loading.png");
+  background-size: cover;
+  background-position: center;
+  height: 38vh;
+  width: 25vh;
+  margin-top: 0.8rem;
+}
 
 .img-5-films {
   height: 38vh;
   width: 25vh;
   border: 1px solid var(--color-title-bar);
-  margin-top: 0.8rem;
 }
 
 .validate_button {
