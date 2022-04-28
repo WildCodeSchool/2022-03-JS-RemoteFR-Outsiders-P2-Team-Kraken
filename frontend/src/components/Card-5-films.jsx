@@ -6,11 +6,9 @@ const ItemTypes = {
 };
 
 const style = {
-  border: "1px solid red",
   cursor: "move",
-  height: "100%",
-  width: "auto",
 };
+
 function Card({ id, text, index, moveCard }) {
   const ref = useRef(null);
   const [{ handlerId }, drop] = useDrop({

@@ -1,10 +1,10 @@
 import React from "react";
-// import HomeContent from "../components/HomeContent";
-// import Configuration from "../components/Configuration";
+import { Route, Routes } from "react-router-dom";
+import HomeContent from "../components/HomeContent";
+import Configuration from "../components/Configuration";
 import TitleBar from "../components/TitleBar";
-// import TwoMovies from "../components/TwoMovies";
-import Dnd from "./5-films";
-
+import TwoMovies from "../components/TwoMovies";
+import Dnd from "../components/5-films";
 import "../App.css";
 
 function Home() {
@@ -28,23 +28,28 @@ function Home() {
     <div className="screen">
       <TitleBar title={titleMain} score={score} />
       <div className="game_content" style={{ width: "100%" }}>
-        {/* <HomeContent />
-         <Configuration
-          pseudo={pseudo}
-          handlePseudoChange={handlePseudoChange}
-        /> */}
-        <Dnd
-          updateTitleMain={updateTitleMain}
-          titleMain={titleMain}
-          score={score}
-          updateScore={updateScore}
-        />
-        {/* <TwoMovies
-          updateTitleMain={updateTitleMain}
-          titleMain={titleMain}
-          score={score}
-          updateScore={updateScore}
-      /> */}
+        <Routes>
+          <Route path="/" element={<HomeContent />} />
+          <Route
+            path="/configuration"
+            element={
+              <Configuration
+                pseudo={pseudo}
+                handlePseudoChange={handlePseudoChange}
+              />
+            }
+          />
+          <Route
+            path="/game/two-movies"
+            element={
+              <TwoMovies
+                updateTitleMain={updateTitleMain}
+                titleMain={titleMain}
+              />
+            }
+          />
+          <Route path="/game/five-movies" element={<Dnd />} />
+        </Routes>
       </div>
     </div>
   );

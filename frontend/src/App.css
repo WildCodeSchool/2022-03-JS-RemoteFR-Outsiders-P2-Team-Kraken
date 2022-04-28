@@ -67,7 +67,7 @@ h2 {
   font-size: 3rem;
 }
 
-p{
+p {
   font-size: 1.5rem;
 }
 /*******************************************/
@@ -76,7 +76,7 @@ p{
 
 .play_button {
   background-color: var(--color-background);
-  border: 6px solid  var(--color-title-bar);
+  border: 6px solid var(--color-title-bar);
   display: inline-block;
   cursor: pointer;
   color: #ffffff;
@@ -88,7 +88,7 @@ p{
 }
 
 .play_button:hover {
-  background-color:  var(--color-title-bar);
+  background-color: var(--color-title-bar);
   border: 6px solid #ffffff;
 }
 
@@ -151,8 +151,8 @@ p{
   perspective: 150rem;
   -moz-perspective: 150rem;
   position: relative;
-  height: 40rem;
-  width: 26.6rem;
+  height: 38vh;
+  width: 25vh;
 }
 
 .CardConfig img {
@@ -172,20 +172,20 @@ p{
 }
 
 .CardConfig h4 {
-  font-size: 3rem;
+  font-size: 2vw;
   font-weight: 200;
   margin-top: 3rem;
 }
 
 .CardConfig p {
   letter-spacing: 0.2rem;
-  font-size: 1.5rem;
-  font-weight: 200;
+  font-size: 1rem;
+  font-weight: 100;
 }
 
 .CardConfig__side {
   border: 1px solid var(--color-title-bar);
-  height: 40rem;
+  height: 38vh;
   -webkit-transition: all 0.8s ease;
   transition: all 0.8s ease;
   position: absolute;
@@ -288,4 +288,18 @@ p{
   right: 10px;
   color: #585858;
   text-decoration: none;
+}
+
+.img-5-films {
+  height: 38vh;
+  width: 25vh;
+  border: 1px solid var(--color-title-bar);
+  margin-top: 0.8rem;
+}
+
+.validate_button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1rem;
 }

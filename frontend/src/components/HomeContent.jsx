@@ -4,8 +4,8 @@ import {
   faVolumeMute,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Link } from "react-router-dom";
 import Carousel from "./Carousel";
-
 import "../App.css";
 
 function HomeContent() {
@@ -15,9 +15,11 @@ function HomeContent() {
       <div className="container_button">
         <div className="try">
           <FontAwesomeIcon className="sound_icon" icon={faVolumeMute} />
-          <button type="button" className="play_button">
-            JOUER
-          </button>
+          <Link to="/configuration">
+            <button type="button" className="play_button">
+              JOUER
+            </button>
+          </Link>
           <FontAwesomeIcon className="help_icon" icon={faQuestionCircle} />
         </div>
       </div>

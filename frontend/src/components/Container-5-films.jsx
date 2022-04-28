@@ -1,8 +1,9 @@
 import update from "immutability-helper";
 import { useCallback, useState, useEffect } from "react";
-import Card from "./Card-5-films";
-import checkAnswer5 from "../services/checkAnswer5";
 import getRandomQuestion from "../services/getRandomQuestion";
+import checkAnswer5 from "../services/checkAnswer5";
+import { Link } from "react-router-dom";
+import Card from "./Card-5-films";
 
 const style = {
   display: "flex",
@@ -121,21 +122,20 @@ function Container({
   };
   checkAnswer5(friseFilm, question, score, updateScore, isValidated);
 
-
   return (
     <div>
-      <div style={style}>
-        {cards.map((card, i) => {
-          return renderCard(card, i);
-        })}
+      <div style={style}> {cards.map((card, i) => renderCard(card, i))} </div>
+      <div className="validate_button">
+        <Link to="/game/two-movies">
+          <button
+            type="button"
+            className="play_button"
+            onClick={handleOnClickValidation}
+          >
+            VALIDER
+          </button>
+        </Link>
       </div>
-      <button
-        type="button"
-        className="play_button"
-        onClick={handleOnClickValidation}
-      >
-        VALIDER
-      </button>
     </div>
   );
 }
