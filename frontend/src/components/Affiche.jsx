@@ -8,7 +8,7 @@ function Affiche({ id, titre, affiche, setIdClicked }) {
 
   return (
     <div className="CardConfig">
-      <div className="CardConfig__side CardConfig__side--front">
+      <div className="CardConfig__Affiche CardConfig__side CardConfig__side--front">
         <img src={affiche} alt={`affiche du film ${titre}`} />
       </div>
       <div className="CardConfig__side CardConfig__side--back">
