@@ -13,26 +13,41 @@ function Home() {
     setTitleMain(newTitle);
   };
 
-  // INFO : Don't remove this comment please
-  const [pseudo, setPseudo] = React.useState("");
+  /* const [pseudo, setPseudo] = React.useState("");
   const handlePseudoChange = (e) => {
     setPseudo(e.target.value);
+  }; */
+
+  const [score, setScore] = React.useState(0);
+  const updateScore = (points) => {
+    const newScore = score + points;
+    setScore(newScore);
   };
 
   return (
     <div className="screen">
-      <TitleBar title={titleMain} />
+      <TitleBar title={titleMain} score={score} />
       <div className="game_content" style={{ width: "100%" }}>
         <Routes>
           <Route path="/" element={<HomeContent />} />
-          <Route path="/configuration"
-            element={<Configuration
-              pseudo={pseudo}
-              handlePseudoChange={handlePseudoChange}
-            />} />
-          <Route path="/game/two-movies"
-            element={<TwoMovies updateTitleMain={updateTitleMain}
-              titleMain={titleMain} />} />
+          <Route
+            path="/configuration"
+            element={
+              <Configuration
+                pseudo={pseudo}
+                handlePseudoChange={handlePseudoChange}
+              />
+            }
+          />
+          <Route
+            path="/game/two-movies"
+            element={
+              <TwoMovies
+                updateTitleMain={updateTitleMain}
+                titleMain={titleMain}
+              />
+            }
+          />
           <Route path="/game/five-movies" element={<Dnd />} />
         </Routes>
       </div>

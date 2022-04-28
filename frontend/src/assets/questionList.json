@@ -71,14 +71,14 @@
   },
   {
     "id": 11,
-    "topic": "release-date",
+    "topic": "release_date",
     "type": "DESC",
     "question": "Classez les films du plus ancien au plus récent !",
     "nbfilms": "multiple"
   },
   {
     "id": 12,
-    "topic": "release-date",
+    "topic": "release_date",
     "type": "ASC",
     "question": "Classez les films du plus récent au plus ancien !",
     "nbfilms": "multiple"

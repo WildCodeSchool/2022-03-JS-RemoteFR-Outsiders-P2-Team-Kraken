@@ -11,16 +11,17 @@ function CardConfig({ title, explication, ready }) {
         <div className="CardConfig__cta">
           <div>
             <p>{explication}</p>
-            {ready ?
+            {ready ? (
               <Link to="/game/two-movies">
                 <button type="button" className="select_button">
                   Sélectionner
                 </button>
               </Link>
-              : <button type="button" className="select_button">
+            ) : (
+              <button type="button" className="select_button">
                 Non disponible
               </button>
-            }
+            )}
           </div>
         </div>
       </div>
