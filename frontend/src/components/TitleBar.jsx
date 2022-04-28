@@ -1,7 +1,7 @@
 import React from "react";
 import "../App.css";
 
-function TitleBar({ title }) {
+function TitleBar({ title, score }) {
   if (title[1] === "main") {
     return (
       <div className="title_bar">
@@ -11,7 +11,9 @@ function TitleBar({ title }) {
   }
   return (
     <div className="title_bar">
+      <p>timer</p>
       <h2>{title[0]}</h2>
+      <p>{score} pt(s)</p>
     </div>
   );
 }

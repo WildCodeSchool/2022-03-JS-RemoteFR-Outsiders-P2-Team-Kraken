@@ -1,7 +1,15 @@
 import React from "react";
 import axios from "axios";
 
-const checkAnswer = (idFilm1, idFilm2, idClicked, type, topic) => {
+const checkAnswer = (
+  idFilm1,
+  idFilm2,
+  idClicked,
+  type,
+  topic,
+  score,
+  updateScore
+) => {
   const apiKey = "8b3e8af5c0e9e0a359483a16acf719e2";
 
   const [film1, setFilm1] = React.useState({});
@@ -77,25 +85,25 @@ const checkAnswer = (idFilm1, idFilm2, idClicked, type, topic) => {
       case type === "MAX" &&
         film1 >= film2 &&
         parseInt(idClicked, 10) === idFilm1:
-        console.warn(`Bravo, ${film1} > ${film2}`);
+        updateScore(1000);
         break;
       case type === "MAX" &&
         film1 <= film2 &&
         parseInt(idClicked, 10) === idFilm2:
-        console.warn(`Bravo !, ${film1} > ${film2}`);
+        updateScore(1000);
         break;
       case type === "MIN" &&
         film1 <= film2 &&
         parseInt(idClicked, 10) === idFilm1:
-        console.warn(`Bravo !, ${film1} < ${film2}`);
+        updateScore(1000);
         break;
       case type === "MIN" &&
         film1 >= film2 &&
         parseInt(idClicked, 10) === idFilm2:
-        console.warn(`Bravo !, ${film1} < ${film2}`);
+        updateScore(1000);
+
         break;
       default:
-        console.warn(`Perdu ! ${film1} - ${film2}`);
     }
   }, [twoFilmReady]);
 };
