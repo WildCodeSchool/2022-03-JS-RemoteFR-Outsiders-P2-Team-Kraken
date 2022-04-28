@@ -3,7 +3,6 @@ import update from "immutability-helper";
 import { useCallback, useState, useEffect } from "react";
 import getRandomQuestion from "../services/getRandomQuestion";
 import checkAnswer5 from "../services/checkAnswer5";
-import { Link } from "react-router-dom";
 import Card from "./Card-5-films";
 
 const style = {

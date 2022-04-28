@@ -13,10 +13,10 @@ function Home() {
     setTitleMain(newTitle);
   };
 
-  /* const [pseudo, setPseudo] = React.useState("");
+  const [pseudo, setPseudo] = React.useState("");
   const handlePseudoChange = (e) => {
     setPseudo(e.target.value);
-  }; */
+  };
 
   const [score, setScore] = React.useState(0);
   const updateScore = (points) => {
@@ -45,10 +45,22 @@ function Home() {
               <TwoMovies
                 updateTitleMain={updateTitleMain}
                 titleMain={titleMain}
+                updateScore={updateScore}
+                score={score}
               />
             }
           />
-          <Route path="/game/five-movies" element={<Dnd />} />
+          <Route
+            path="/game/five-movies"
+            element={
+              <Dnd
+                updateTitleMain={updateTitleMain}
+                titleMain={titleMain}
+                updateScore={updateScore}
+                score={score}
+              />
+            }
+          />
         </Routes>
       </div>
     </div>
