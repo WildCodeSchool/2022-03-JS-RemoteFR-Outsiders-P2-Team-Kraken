@@ -4,7 +4,7 @@ import HomeContent from "../components/HomeContent";
 import Configuration from "../components/Configuration";
 import TitleBar from "../components/TitleBar";
 import TwoMovies from "../components/TwoMovies";
-import Dnd from "../components/5-films";
+import Dnd from "../components/FiveMovies";
 import "../App.css";
 
 function Home() {
