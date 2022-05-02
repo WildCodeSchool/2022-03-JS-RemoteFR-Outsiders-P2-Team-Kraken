@@ -26,10 +26,7 @@ function getRandomQuestion(nbfilms) {
   }
   const possibleQuestion = questionList.filter((e) => e.nbfilms === strnbfilms);
   const randIndex = Math.round(Math.random() * (possibleQuestion.length - 1));
-  console.log((possibleQuestion.length - 1));
-  console.log(randIndex);
   const ficheQuestion = possibleQuestion[randIndex];
-  console.log(ficheQuestion);
 
   return ficheQuestion;
 }
