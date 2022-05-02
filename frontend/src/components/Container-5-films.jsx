@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import update from "immutability-helper";
-import { useCallback, useState, useEffect } from "react";
+import React, { useCallback, useState, useEffect } from "react";
 import getRandomQuestion from "../services/getRandomQuestion";
 import checkAnswer5 from "../services/checkAnswer5";
 import Card from "./Card-5-films";
@@ -120,8 +120,15 @@ function Container({
   const handleOnClickValidation = () => {
     setIsValidated(true);
   };
-  checkAnswer5(friseFilm, question, score, updateScore, isValidated);
 
+  const isInitialMount = React.useRef(true);
+  useEffect(() => {
+    if (isInitialMount.current) {
+      isInitialMount.current = false;
+    } else {
+      checkAnswer5(friseFilm, question, score, updateScore, isValidated);
+    }
+  }, [isValidated]);
   return (
     <div>
       <div style={style}> {cards.map((card, i) => renderCard(card, i))} </div>

@@ -25,10 +25,11 @@ function getRandomQuestion(nbfilms) {
     strnbfilms = "multiple";
   }
   const possibleQuestion = questionList.filter((e) => e.nbfilms === strnbfilms);
-  const randIndex = Math.round(Math.random() * possibleQuestion.length);
-  const randomQuestion = possibleQuestion[randIndex];
-  const ficheQuestion = randomQuestion;
-  console.warn(ficheQuestion);
+  const randIndex = Math.round(Math.random() * (possibleQuestion.length - 1));
+  console.log((possibleQuestion.length - 1));
+  console.log(randIndex);
+  const ficheQuestion = possibleQuestion[randIndex];
+  console.log(ficheQuestion);
 
   return ficheQuestion;
 }
