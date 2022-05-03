@@ -1,5 +1,5 @@
 import React from "react";
-import axios from "axios";
+import getMovieInfo from "./getMovieInfo";
 
 const checkAnswer = (
   idFilm1,
@@ -18,58 +18,14 @@ const checkAnswer = (
   const urlFilm1 = `https://api.themoviedb.org/3/movie/${idFilm1}?api_key=${apiKey}&language=fr-FR`;
   const urlFilm2 = `https://api.themoviedb.org/3/movie/${idFilm2}?api_key=${apiKey}&language=fr-FR`;
 
+  const isInitialMount = React.useRef(true);
   React.useEffect(() => {
-    axios
-      .get(urlFilm1)
-      .then((response) => {
-        if (response.status === 404) {
-          console.warn("erreur 404 détectée");
-        } else if (response.status === 504) {
-          console.warn("erreur 504 détectée");
-        }
-        return response.data;
-      })
-      .then((data) => {
-        if (topic === "profitability") {
-          setFilm1(parseInt(data.revenue, 10) - parseInt(data.budget, 10));
-        } else if (topic === "release_date") {
-          const date = parseInt(data.release_date.slice(0, 4), 10);
-          setFilm1(date);
-        } else {
-          setFilm1(parseInt(data[topic], 10));
-        }
-      })
-      .catch((error) => {
-        // handle error
-        console.warn(error);
-      });
-  }, [idClicked]);
-
-  React.useEffect(() => {
-    axios
-      .get(urlFilm2)
-      .then((response) => {
-        if (response.status === 404) {
-          console.warn("erreur 404 détectée");
-        } else if (response.status === 504) {
-          console.warn("erreur 504 détectée");
-        }
-        return response.data;
-      })
-      .then((data) => {
-        if (topic === "profitability") {
-          setFilm2(parseInt(data.revenue, 10) - parseInt(data.budget, 10));
-        } else if (topic === "release_date") {
-          const date = parseInt(data.release_date.slice(0, 4), 10);
-          setFilm2(date);
-        } else {
-          setFilm2(parseInt(data[topic], 10));
-        }
-      })
-      .catch((error) => {
-        // handle error
-        console.warn(error);
-      });
+    if (isInitialMount.current) {
+      isInitialMount.current = false;
+    } else {
+      setFilm1(getMovieInfo(urlFilm1, topic));
+      setFilm2(getMovieInfo(urlFilm2, topic));
+    }
   }, [idClicked]);
 
   React.useEffect(() => {
