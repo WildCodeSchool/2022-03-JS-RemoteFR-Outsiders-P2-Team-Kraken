@@ -2,9 +2,18 @@ import { DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
 import Container from "./ContainerFiveMovies";
 import getRandomMovie from "../services/getRandomMovie";
+import getOneMovie from "../services/getOneMovie";
 
 function Dnd({ updateTitleMain, score, updateScore }) {
-  const film1 = getRandomMovie();
+  const maDate = new Date();
+  let film1 = [];
+  if (maDate.toLocaleDateString("fr").slice(0, 5) === "04/05") {
+    film1 = getOneMovie([
+      1892, 1891, 11, 140607, 181808, 181812, 1893, 1895, 1894,
+    ]);
+  } else {
+    film1 = getRandomMovie();
+  }
   const film2 = getRandomMovie();
   const film3 = getRandomMovie();
   const film4 = getRandomMovie();
