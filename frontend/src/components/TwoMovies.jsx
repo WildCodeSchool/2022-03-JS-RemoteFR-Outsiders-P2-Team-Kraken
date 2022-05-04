@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import getRandomMovie from "../services/getRandomMovie";
 import getRandomQuestion from "../services/getRandomQuestion";
+import getFilm1 from "../services/getFilm1";
 import Affiche from "./Affiche";
 import checkAnwser from "../services/checkAnswer";
 import { QuestionContext } from "../contexts/QuestionContext";
@@ -10,7 +11,7 @@ function TwoMovies({ updateTitleMain, score, updateScore }) {
   const [idClicked, setIdClicked] = React.useState(0);
   const [question, setQuestion] = React.useState({});
 
-  const film1 = getRandomMovie();
+  const film1 = getFilm1();
   const film2 = getRandomMovie();
 
   const navigate = useNavigate();
