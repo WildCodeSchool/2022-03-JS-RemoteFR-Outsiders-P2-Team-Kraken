@@ -3,7 +3,7 @@ import { HTML5Backend } from "react-dnd-html5-backend";
 import Container from "./ContainerFiveMovies";
 import getRandomMovie from "../services/getRandomMovie";
 
-function Dnd({ updateTitleMain, score, updateScore }) {
+function Dnd({ updateTitleMain }) {
   const film1 = getRandomMovie();
   const film2 = getRandomMovie();
   const film3 = getRandomMovie();
@@ -20,8 +20,6 @@ function Dnd({ updateTitleMain, score, updateScore }) {
           film3={film3}
           film4={film4}
           film5={film5}
-          score={score}
-          updateScore={updateScore}
         />
       </DndProvider>
     </div>

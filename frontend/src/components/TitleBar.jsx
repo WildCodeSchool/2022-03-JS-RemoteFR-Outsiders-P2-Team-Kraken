@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
+import { ScoreContext } from "../contexts/scoreContext";
 import "../App.css";
 
-function TitleBar({ title, score }) {
+function TitleBar({ title }) {
+  const { score } = useContext(ScoreContext);
   if (title[1] === "main") {
     return (
       <div className="title_bar">

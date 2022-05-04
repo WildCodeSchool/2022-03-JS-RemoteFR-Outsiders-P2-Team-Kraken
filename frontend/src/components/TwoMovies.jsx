@@ -4,7 +4,7 @@ import getRandomQuestion from "../services/getRandomQuestion";
 import Affiche from "./Affiche";
 import checkAnwser from "../services/checkAnswer";
 
-function TwoMovies({ updateTitleMain, score, updateScore }) {
+function TwoMovies({ updateTitleMain }) {
   const [idClicked, setIdClicked] = React.useState(0);
   const [question, setQuestion] = React.useState({});
 
@@ -19,15 +19,7 @@ function TwoMovies({ updateTitleMain, score, updateScore }) {
     updateTitleMain([question.question, "question"]);
   }, [question]);
 
-  checkAnwser(
-    film1[0],
-    film2[0],
-    idClicked,
-    question.type,
-    question.topic,
-    score,
-    updateScore
-  );
+  checkAnwser(film1[0], film2[0], idClicked, question.type, question.topic);
 
   return (
     <div

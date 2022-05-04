@@ -52,7 +52,9 @@ const getRandomMovie = () => {
   }, [isMovieValid]);
 
   React.useEffect(() => {
-    if (!firstLoading) {
+    if (firstLoading) {
+      setFirstLoading(false);
+    } else {
       const urlMovieToConfirm = `https://api.themoviedb.org/3/movie/${idMovie}?api_key=${apiKey}&language=fr-FR`;
       axios
         .get(urlMovieToConfirm)

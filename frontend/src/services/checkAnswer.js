@@ -1,15 +1,11 @@
-import React from "react";
-import getMovieInfo from "./getMovieInfo";
+import React, { useContext } from "react";
+import { ScoreContext } from "../contexts/scoreContext";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
-const checkAnswer = (
-  idFilm1,
-  idFilm2,
-  idClicked,
-  type,
-  topic,
-  score,
-  updateScore
-) => {
+const checkAnswer = (idFilm1, idFilm2, idClicked, type, topic) => {
+  let navigate = useNavigate();
+  const { score, setScore } = useContext(ScoreContext);
   const apiKey = "8b3e8af5c0e9e0a359483a16acf719e2";
 
   const [film1, setFilm1] = React.useState({});
@@ -18,13 +14,67 @@ const checkAnswer = (
   const urlFilm1 = `https://api.themoviedb.org/3/movie/${idFilm1}?api_key=${apiKey}&language=fr-FR`;
   const urlFilm2 = `https://api.themoviedb.org/3/movie/${idFilm2}?api_key=${apiKey}&language=fr-FR`;
 
-  const isInitialMount = React.useRef(true);
+  const [firstLoadingFilm1, setFirstLoadingScoreFilm1] = React.useState(true);
   React.useEffect(() => {
-    if (isInitialMount.current) {
-      isInitialMount.current = false;
+    if (!firstLoadingFilm1) {
+      axios
+        .get(urlFilm1)
+        .then((response) => {
+          if (response.status === 404) {
+            console.warn("erreur 404 détectée");
+          } else if (response.status === 504) {
+            console.warn("erreur 504 détectée");
+          }
+          return response.data;
+        })
+        .then((data) => {
+          if (topic === "profitability") {
+            setFilm1(parseInt(data.revenue, 10) - parseInt(data.budget, 10));
+          } else if (topic === "release_date") {
+            const date = parseInt(data.release_date.slice(0, 4), 10);
+            setFilm1(date);
+          } else {
+            setFilm1(parseInt(data[topic], 10));
+          }
+        })
+        .catch((error) => {
+          // handle error
+          console.warn(error);
+        });
     } else {
-      setFilm1(getMovieInfo(urlFilm1, topic));
-      setFilm2(getMovieInfo(urlFilm2, topic));
+      setFirstLoadingScoreFilm1(false);
+    }
+  }, [idClicked]);
+
+  const [firstLoadingFilm2, setFirstLoadingScoreFilm2] = React.useState(true);
+  React.useEffect(() => {
+    if (!firstLoadingFilm2) {
+      axios
+        .get(urlFilm2)
+        .then((response) => {
+          if (response.status === 404) {
+            console.warn("erreur 404 détectée");
+          } else if (response.status === 504) {
+            console.warn("erreur 504 détectée");
+          }
+          return response.data;
+        })
+        .then((data) => {
+          if (topic === "profitability") {
+            setFilm2(parseInt(data.revenue, 10) - parseInt(data.budget, 10));
+          } else if (topic === "release_date") {
+            const date = parseInt(data.release_date.slice(0, 4), 10);
+            setFilm2(date);
+          } else {
+            setFilm2(parseInt(data[topic], 10));
+          }
+        })
+        .catch((error) => {
+          // handle error
+          console.warn(error);
+        });
+    } else {
+      setFirstLoadingScoreFilm2(false);
     }
   }, [idClicked]);
 
@@ -36,30 +86,45 @@ const checkAnswer = (
     }
   }, [film1, film2]);
 
+  const [firstLoadingScore, setFirstLoadingScore] = React.useState(true);
   React.useEffect(() => {
-    switch (true) {
-      case type === "MAX" &&
-        film1 >= film2 &&
-        parseInt(idClicked, 10) === idFilm1:
-        updateScore(1000);
-        break;
-      case type === "MAX" &&
-        film1 <= film2 &&
-        parseInt(idClicked, 10) === idFilm2:
-        updateScore(1000);
-        break;
-      case type === "MIN" &&
-        film1 <= film2 &&
-        parseInt(idClicked, 10) === idFilm1:
-        updateScore(1000);
-        break;
-      case type === "MIN" &&
-        film1 >= film2 &&
-        parseInt(idClicked, 10) === idFilm2:
-        updateScore(1000);
+    if (firstLoadingScore) {
+      setFirstLoadingScore(false);
+    } else {
+      switch (true) {
+        case type === "MAX" &&
+          film1 >= film2 &&
+          parseInt(idClicked, 10) === idFilm1:
+          console.log(`1 - ${film1} - ${film2}`);
+          setScore(score + 1000);
+          navigate("/game/five-movies");
+          break;
+        case type === "MAX" &&
+          film1 <= film2 &&
+          parseInt(idClicked, 10) === idFilm2:
+          console.log(`2 - ${film1} - ${film2}`);
+          setScore(score + 1000);
+          navigate("/game/five-movies");
+          break;
+        case type === "MIN" &&
+          film1 <= film2 &&
+          parseInt(idClicked, 10) === idFilm1:
+          console.log(`3 - ${film1} - ${film2}`);
+          setScore(score + 1000);
+          navigate("/game/five-movies");
+          break;
+        case type === "MIN" &&
+          film1 >= film2 &&
+          parseInt(idClicked, 10) === idFilm2:
+          console.log(`4 - ${film1} - ${film2}`);
+          setScore(score + 1000);
+          navigate("/game/five-movies");
 
-        break;
-      default:
+          break;
+        default:
+          console.log(5);
+          navigate("/game/five-movies");
+      }
     }
   }, [twoFilmReady]);
 };
