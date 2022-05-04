@@ -7,11 +7,14 @@ function TitleBar({ title, score }) {
   const { timer } = useContext(TimerContext);
   const { timer5 } = useContext(Timer5Context);
   let timerScreen = 0;
-  if (title[1] === "question2") {
-    timerScreen = timer;
-  } else {
-    timerScreen = timer5;
-  }
+
+  React.useEffect(() => {
+    if (title[1] === "question2") {
+      timerScreen = timer;
+    } else {
+      timerScreen = timer5;
+    }
+  }, [title[1]]);
 
   if (title[1] === "main") {
     return (
