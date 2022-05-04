@@ -1,9 +1,10 @@
 import { Link } from "react-router-dom";
 import update from "immutability-helper";
-import { useCallback, useState, useEffect } from "react";
+import { useCallback, useState, useEffect, useContext } from "react";
 import getRandomQuestion from "../services/getRandomQuestion";
 import checkAnswer5 from "../services/checkAnswer5";
 import Card from "./CardFiveMovies";
+import { QuestionContext } from "../contexts/QuestionContext";
 
 const style = {
   display: "flex",
@@ -44,7 +45,9 @@ function Container({
     },
   ]);
 
+  const { nbQuestion, setNbQuestion } = useContext(QuestionContext);
   useEffect(() => {
+    setNbQuestion(nbQuestion + 1);
     setQuestion(getRandomQuestion(5));
   }, []);
 
