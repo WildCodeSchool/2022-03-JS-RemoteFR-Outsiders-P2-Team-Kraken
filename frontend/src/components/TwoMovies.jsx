@@ -1,7 +1,7 @@
 import React from "react";
-import getOneMovie from "../services/getOneMovie";
 import getRandomMovie from "../services/getRandomMovie";
 import getRandomQuestion from "../services/getRandomQuestion";
+import getFilm1 from "../services/getFilm1";
 import Affiche from "./Affiche";
 import checkAnwser from "../services/checkAnswer";
 
@@ -9,16 +9,7 @@ function TwoMovies({ updateTitleMain, score, updateScore }) {
   const [idClicked, setIdClicked] = React.useState(0);
   const [question, setQuestion] = React.useState({});
 
-  const maDate = new Date();
-  let film1 = [];
-  if (maDate.toLocaleDateString("fr").slice(0, 5) === "04/05") {
-    film1 = getOneMovie([
-      1892, 1891, 11, 140607, 181808, 181812, 1893, 1895, 1894,
-    ]);
-  } else {
-    film1 = getRandomMovie();
-  }
-
+  const film1 = getFilm1();
   const film2 = getRandomMovie();
 
   React.useEffect(() => {
