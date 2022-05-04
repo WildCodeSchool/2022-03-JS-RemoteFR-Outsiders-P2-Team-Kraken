@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import getRandomMovie from "../services/getRandomMovie";
 import getRandomQuestion from "../services/getRandomQuestion";
 import getFilm1 from "../services/getFilm1";
 import Affiche from "./Affiche";
 import checkAnwser from "../services/checkAnswer";
+import { QuestionContext } from "../contexts/QuestionContext";
 
 function TwoMovies({ updateTitleMain, score, updateScore }) {
   const [idClicked, setIdClicked] = React.useState(0);
@@ -12,7 +14,13 @@ function TwoMovies({ updateTitleMain, score, updateScore }) {
   const film1 = getFilm1();
   const film2 = getRandomMovie();
 
+  const navigate = useNavigate();
+  const { nbQuestion, setNbQuestion } = useContext(QuestionContext);
   React.useEffect(() => {
+    if (nbQuestion >= 5) {
+      navigate("/ScoreScreen");
+    }
+    setNbQuestion(nbQuestion + 1);
     setQuestion(getRandomQuestion(2));
   }, []);
 

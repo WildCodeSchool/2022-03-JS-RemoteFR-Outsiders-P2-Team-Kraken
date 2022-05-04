@@ -85,6 +85,7 @@ p {
   padding: 16px 60px;
   text-decoration: none;
   transition: 0.3s;
+  
 }
 
 .play_button:hover {
@@ -98,11 +99,18 @@ p {
   transform: translate(-50%);
   position: absolute;
   bottom: 0;
+  
+
 }
 
-.helpicon {
-  height: 1000px;
-  color: wheat;
+.btn-sound {
+  padding: 10px 20px;
+  display: block;
+  font-size: 18px;
+  background: none;
+  color: white;
+  border : none;
+  font-size: 3rem;
 }
 
 /*******************************************/
@@ -326,3 +334,174 @@ width: 25vh;
   justify-content: center;
   margin-top: 1rem;
 }
+
+/*******************************************/
+/*********** MODAL *************************/
+/*******************************************/
+
+
+body.active-modal {
+  overflow-y: hidden;
+
+}
+
+.btn-modal {
+  padding: 10px 20px;
+  display: block;
+  font-size: 18px;
+  background: none;
+  color: white;
+  border : none;
+  font-size: 3rem;
+  cursor: pointer;
+}
+
+.modal, .overlay {
+  width: 100vw;
+  height: 100vh;
+  height: 130vmin;
+  position: fixed;
+}
+
+.overlay {
+  background: rgba(0, 0, 0, 0.819);
+  
+}
+.modal-content {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  line-height: 1.4;
+  background: #950235;
+  padding: 14px 28px;
+  min-width: 80rem;
+  min-height: 42rem;
+  border-radius: 15px;
+  animation: fadein 0.8s;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: space-around; 
+}
+
+.modal-content h1, p, li {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.5rem;
+}
+
+.close-modal {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 5px 7px;
+}
+
+.try {
+  display: flex;
+  width: 100vw;
+  justify-content: space-around;
+  align-items: center;
+}
+
+
+
+
+@keyframes fadein {
+	from {
+		opacity:0;
+	}
+	to {
+		opacity:1;
+	}
+}
+
+
+/*******************************************/
+/*********** MODAL CONTENT *****************/
+/*******************************************/
+
+figcaption {
+  text-align: center;
+  font-size: 1.5rem;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.rules {
+  height: 20rem;
+  
+}
+
+
+.exit-modal {
+  position: fixed;
+  bottom: 0;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+
+}
+
+.exit-btn {
+  all: unset;
+  cursor: pointer;
+  background-color: var(--color-background);
+  display: inline-block;
+  cursor: pointer;
+  color: #ffffff;
+  letter-spacing: 4px;
+  font-size: 34px;
+  padding: 16px 60px;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.exit-btn:hover{
+  background-color: #212121;
+}
+
+.dev-team {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  height: 23rem;
+}
+.dev-team img{
+  height: 12rem;
+  width: auto;
+}
+
+.modal-content input {
+  
+  position: absolute;
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.modal-links ul {
+  display: flex;
+  justify-content: space-around;
+}
+.modal-links ul li {
+  padding: 0.5rem 2rem;
+  font-size: 2rem;
+  cursor: default;
+  background-color: black;
+  border-color: #fff;
+  border: 1px solid;
+}
+
+.modal-content li {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+
+
+
+
+
