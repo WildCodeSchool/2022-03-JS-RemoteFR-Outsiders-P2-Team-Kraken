@@ -3,6 +3,7 @@ import getRandomMovie from "../services/getRandomMovie";
 import getRandomQuestion from "../services/getRandomQuestion";
 import Affiche from "./Affiche";
 import checkAnwser from "../services/checkAnswer";
+import chrono from "../services/chrono";
 
 function TwoMovies({ updateTitleMain, score, updateScore }) {
   const [idClicked, setIdClicked] = React.useState(0);
@@ -11,12 +12,14 @@ function TwoMovies({ updateTitleMain, score, updateScore }) {
   const film1 = getRandomMovie();
   const film2 = getRandomMovie();
 
+  chrono(true);
+
   React.useEffect(() => {
     setQuestion(getRandomQuestion(2));
   }, []);
 
   React.useEffect(() => {
-    updateTitleMain([question.question, "question"]);
+    updateTitleMain([question.question, "question2"]);
   }, [question]);
 
   checkAnwser(

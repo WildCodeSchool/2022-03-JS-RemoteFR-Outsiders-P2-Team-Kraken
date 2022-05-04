@@ -1,8 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import chrono from "../services/chrono";
 
 function Affiche({ id, titre, affiche, setIdClicked }) {
   const handleChooseOneFilm = (e) => {
+    chrono(false);
     setIdClicked(e.target.value);
   };
 
@@ -20,7 +22,7 @@ function Affiche({ id, titre, affiche, setIdClicked }) {
                 type="button"
                 value={id}
                 className="select_button"
-                onClick={handleChooseOneFilm}
+                onClick={() => handleChooseOneFilm()}
               >
                 Selectionner
               </button>
