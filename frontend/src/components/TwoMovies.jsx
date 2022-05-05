@@ -5,17 +5,18 @@ import getRandomQuestion from "../services/getRandomQuestion";
 import getFilm1 from "../services/getFilm1";
 import Affiche from "./Affiche";
 import checkAnwser from "../services/checkAnswer";
+import chrono from "../services/chrono";
 import { QuestionContext } from "../contexts/QuestionContext";
 
 function TwoMovies({ updateTitleMain, score, updateScore }) {
   const [idClicked, setIdClicked] = React.useState(0);
   const [question, setQuestion] = React.useState({});
-
   const film1 = getFilm1();
   const film2 = getRandomMovie();
-
   const navigate = useNavigate();
   const { nbQuestion, setNbQuestion } = useContext(QuestionContext);
+  chrono(true);
+ 
   React.useEffect(() => {
     if (nbQuestion >= 5) {
       navigate("/ScoreScreen");
@@ -25,7 +26,7 @@ function TwoMovies({ updateTitleMain, score, updateScore }) {
   }, []);
 
   React.useEffect(() => {
-    updateTitleMain([question.question, "question"]);
+    updateTitleMain([question.question, "question2"]);
   }, [question]);
 
   checkAnwser(

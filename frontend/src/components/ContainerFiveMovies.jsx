@@ -1,10 +1,11 @@
 import { Link } from "react-router-dom";
 import update from "immutability-helper";
-import { useCallback, useState, useEffect, useContext } from "react";
+import React, { useCallback, useState, useEffect, useContext } from "react";
+import { QuestionContext } from "../contexts/QuestionContext";
 import getRandomQuestion from "../services/getRandomQuestion";
 import checkAnswer5 from "../services/checkAnswer5";
 import Card from "./CardFiveMovies";
-import { QuestionContext } from "../contexts/QuestionContext";
+import chrono5 from "../services/chrono5";
 
 const style = {
   display: "flex",
@@ -21,6 +22,8 @@ function Container({
   score,
   updateScore,
 }) {
+  const [isValidated, setIsValidated] = useState(false);
+  chrono5(true);
   const [question, setQuestion] = useState({});
   const [cards, setCards] = useState([
     {
@@ -52,7 +55,7 @@ function Container({
   }, []);
 
   useEffect(() => {
-    updateTitleMain([question.question, "question"]);
+    updateTitleMain([question.question, "question5"]);
   }, [question]);
 
   useEffect(() => {
@@ -119,8 +122,8 @@ function Container({
     setFriseFilm(tempFrise);
   }, [cards]);
 
-  const [isValidated, setIsValidated] = useState(false);
   const handleOnClickValidation = () => {
+    chrono5(false);
     setIsValidated(true);
   };
   checkAnswer5(friseFilm, question, score, updateScore, isValidated);
@@ -133,7 +136,7 @@ function Container({
           <button
             type="button"
             className="play_button"
-            onClick={handleOnClickValidation}
+            onClick={() => handleOnClickValidation()}
           >
             VALIDER
           </button>
