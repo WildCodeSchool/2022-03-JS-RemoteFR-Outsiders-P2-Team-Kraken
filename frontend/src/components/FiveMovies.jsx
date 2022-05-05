@@ -1,14 +1,26 @@
+import React, { useContext } from "react";
 import { DndProvider } from "react-dnd";
+import { useNavigate } from "react-router-dom";
 import { HTML5Backend } from "react-dnd-html5-backend";
 import Container from "./ContainerFiveMovies";
 import getRandomMovie from "../services/getRandomMovie";
+import getFilm1 from "../services/getFilm1";
+import { QuestionContext } from "../contexts/QuestionContext";
 
 function Dnd({ updateTitleMain }) {
-  const film1 = getRandomMovie();
+  const navigate = useNavigate();
+  const { nbQuestion } = useContext(QuestionContext);
+  const film1 = getFilm1();
   const film2 = getRandomMovie();
   const film3 = getRandomMovie();
   const film4 = getRandomMovie();
   const film5 = getRandomMovie();
+  
+  React.useEffect(() => {
+    if (nbQuestion >= 5) {
+      navigate("/ScoreScreen");
+    }
+  }, []);
 
   return (
     <div className="Dnd">

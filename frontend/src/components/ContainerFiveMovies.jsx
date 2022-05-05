@@ -1,8 +1,10 @@
 import update from "immutability-helper";
-import { useCallback, useState, useEffect } from "react";
+import React, { useCallback, useState, useEffect, useContext } from "react";
+import { QuestionContext } from "../contexts/QuestionContext";
 import getRandomQuestion from "../services/getRandomQuestion";
 import checkAnswer5 from "../services/checkAnswer5";
 import Card from "./CardFiveMovies";
+import chrono5 from "../services/chrono5";
 
 const style = {
   display: "flex",
@@ -10,6 +12,8 @@ const style = {
 };
 
 function Container({ updateTitleMain, film1, film2, film3, film4, film5 }) {
+  const [isValidated, setIsValidated] = useState(false);
+  chrono5(true);
   const [question, setQuestion] = useState({});
   const [cards, setCards] = useState([
     {
@@ -34,12 +38,14 @@ function Container({ updateTitleMain, film1, film2, film3, film4, film5 }) {
     },
   ]);
 
+  const { nbQuestion, setNbQuestion } = useContext(QuestionContext);
   useEffect(() => {
+    setNbQuestion(nbQuestion + 1);
     setQuestion(getRandomQuestion(5));
   }, []);
 
   useEffect(() => {
-    updateTitleMain([question.question, "question"]);
+    updateTitleMain([question.question, "question5"]);
   }, [question]);
 
   useEffect(() => {
@@ -106,8 +112,8 @@ function Container({ updateTitleMain, film1, film2, film3, film4, film5 }) {
     setFriseFilm(tempFrise);
   }, [cards]);
 
-  const [isValidated, setIsValidated] = useState(false);
   const handleOnClickValidation = () => {
+    chrono5(false);
     setIsValidated(true);
   };
   checkAnswer5(friseFilm, question, isValidated);
