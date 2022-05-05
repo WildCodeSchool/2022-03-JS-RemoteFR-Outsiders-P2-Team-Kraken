@@ -4,6 +4,7 @@ import { QuestionContext } from "../contexts/QuestionContext";
 import getRandomQuestion from "../services/getRandomQuestion";
 import checkAnswer5 from "../services/checkAnswer5";
 import Card from "./CardFiveMovies";
+import chrono from "../services/chrono";
 import chrono5 from "../services/chrono5";
 
 const style = {
@@ -13,6 +14,7 @@ const style = {
 
 function Container({ updateTitleMain, film1, film2, film3, film4, film5 }) {
   const [isValidated, setIsValidated] = useState(false);
+  chrono(false);
   chrono5(true);
   const [question, setQuestion] = useState({});
   const [cards, setCards] = useState([
@@ -113,7 +115,6 @@ function Container({ updateTitleMain, film1, film2, film3, film4, film5 }) {
   }, [cards]);
 
   const handleOnClickValidation = () => {
-    chrono5(false);
     setIsValidated(true);
   };
   checkAnswer5(friseFilm, question, isValidated);

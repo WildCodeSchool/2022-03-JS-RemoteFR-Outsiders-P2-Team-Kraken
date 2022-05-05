@@ -1,11 +1,11 @@
 import React, { useContext } from "react";
-import { ScoreContext } from "../contexts/scoreContext";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { ScoreContext } from "../contexts/scoreContext";
 
 const checkAnswer5 = (friseFilm, question, isValidated) => {
   const apiKey = "8b3e8af5c0e9e0a359483a16acf719e2";
-  let navigate = useNavigate();
+  const navigate = useNavigate();
   const { topic } = question;
   const { type } = question;
   const { score, setScore } = useContext(ScoreContext);
@@ -202,7 +202,6 @@ const checkAnswer5 = (friseFilm, question, isValidated) => {
         if (film4 <= film5) {
           questionPoints += 1000;
         }
-        console.log("hello");
         setScore(score + questionPoints);
         navigate("/game/two-movies");
         break;
@@ -235,12 +234,10 @@ const checkAnswer5 = (friseFilm, question, isValidated) => {
         if (film4 >= film5) {
           questionPoints += 1000;
         }
-        console.log("bonjour");
         setScore(score + questionPoints);
         navigate("/game/two-movies");
         break;
       default:
-        console.log("problème");
     }
   }, [fiveFilmReady]);
 };

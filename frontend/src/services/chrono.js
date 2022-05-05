@@ -5,7 +5,7 @@ function chrono(stop) {
   const { timer, setTimer } = useContext(TimerContext);
 
   useEffect(() => {
-    setTimer(17);
+    setTimer(15);
   }, []);
 
   useEffect(() => {
