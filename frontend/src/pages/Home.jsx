@@ -5,6 +5,7 @@ import Configuration from "../components/Configuration";
 import TitleBar from "../components/TitleBar";
 import TwoMovies from "../components/TwoMovies";
 import Dnd from "../components/FiveMovies";
+import { ScoreContextProvider } from "../contexts/scoreContext";
 import { TimerContextProvider } from "../contexts/TimerContext";
 import { Timer5ContextProvider } from "../contexts/Timer5Context";
 import ScoreScreen from "../components/ScoreScreen";
@@ -24,49 +25,51 @@ function Home() {
 
   return (
   <QuestionContextProvider>
-    <Timer5ContextProvider>
-      <TimerContextProvider>
-        <div className="screen">
-          <TitleBar title={titleMain} score={score} />
-          <div className="game_content" style={{ width: "100%" }}>
-            <Routes>
-              <Route path="/" element={<HomeContent />} />
-              <Route
-                path="/configuration"
-                element={
-                  <Configuration
+    <ScoreContextProvider>
+      <Timer5ContextProvider>
+        <TimerContextProvider>
+          <div className="screen">
+            <TitleBar title={titleMain} score={score} />
+            <div className="game_content" style={{ width: "100%" }}>
+              <Routes>
+                <Route path="/" element={<HomeContent />} />
+                <Route
+                  path="/configuration"
+                  element={
+                    <Configuration
                     pseudo={pseudo}
                     handlePseudoChange={handlePseudoChange}
                   />
-                }
-              />
-              <Route
-                path="/game/two-movies"
-                element={
-                  <TwoMovies
+                  }
+                />
+                <Route
+                  path="/game/two-movies"
+                  element={
+                    <TwoMovies
                     updateTitleMain={updateTitleMain}
                     titleMain={titleMain}
                     updateScore={updateScore}
                     score={score}
                   />
-                }
-              />
-              <Route
-                path="/game/five-movies"
-                element={
-                  <Dnd
+                  }
+                />
+                <Route
+                  path="/game/five-movies"
+                  element={
+                    <Dnd
                     updateTitleMain={updateTitleMain}
                     titleMain={titleMain}
                     updateScore={updateScore}
                     score={score}
-                  />
-                }
+                    />
+                  }
               />
-            </Routes>
+              </Routes>
+            </div>
           </div>
-        </div>
-      </TimerContextProvider>
-    </Timer5ContextProvider>
+        </TimerContextProvider>
+      </Timer5ContextProvider>
+    </ScoreContextProvider>
   </QuestionContextProvider>
   );
 }

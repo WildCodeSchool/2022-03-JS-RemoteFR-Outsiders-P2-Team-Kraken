@@ -7,21 +7,20 @@ import getRandomMovie from "../services/getRandomMovie";
 import getFilm1 from "../services/getFilm1";
 import { QuestionContext } from "../contexts/QuestionContext";
 
-function Dnd({ updateTitleMain, score, updateScore }) {
+function Dnd({ updateTitleMain }) {
   const navigate = useNavigate();
   const { nbQuestion } = useContext(QuestionContext);
-
-  React.useEffect(() => {
-    if (nbQuestion >= 5) {
-      navigate("/ScoreScreen");
-    }
-  }, []);
-
   const film1 = getFilm1();
   const film2 = getRandomMovie();
   const film3 = getRandomMovie();
   const film4 = getRandomMovie();
   const film5 = getRandomMovie();
+  
+  React.useEffect(() => {
+    if (nbQuestion >= 5) {
+      navigate("/ScoreScreen");
+    }
+  }, []);
 
   return (
     <div className="Dnd">
@@ -33,8 +32,6 @@ function Dnd({ updateTitleMain, score, updateScore }) {
           film3={film3}
           film4={film4}
           film5={film5}
-          score={score}
-          updateScore={updateScore}
         />
       </DndProvider>
     </div>

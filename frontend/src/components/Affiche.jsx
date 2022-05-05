@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import chrono from "../services/chrono";
 
 function Affiche({ id, titre, affiche, setIdClicked }) {
@@ -17,16 +16,14 @@ function Affiche({ id, titre, affiche, setIdClicked }) {
         <div className="CardConfig__cta">
           <div>
             <h4>{titre}</h4>
-            <Link to="/game/five-movies">
-              <button
-                type="button"
-                value={id}
-                className="select_button"
-                onClick={() => handleChooseOneFilm()}
-              >
-                Selectionner
-              </button>
-            </Link>
+            <button
+              type="button"
+              value={id}
+              className="select_button"
+              onClick={(e) => handleChooseOneFilm(e)}
+            >
+              Sélectionner
+            </button>
           </div>
         </div>
       </div>

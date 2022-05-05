@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import update from "immutability-helper";
 import React, { useCallback, useState, useEffect, useContext } from "react";
 import { QuestionContext } from "../contexts/QuestionContext";
@@ -12,16 +11,7 @@ const style = {
   justifyContent: "space-around",
 };
 
-function Container({
-  updateTitleMain,
-  film1,
-  film2,
-  film3,
-  film4,
-  film5,
-  score,
-  updateScore,
-}) {
+function Container({ updateTitleMain, film1, film2, film3, film4, film5 }) {
   const [isValidated, setIsValidated] = useState(false);
   chrono5(true);
   const [question, setQuestion] = useState({});
@@ -126,21 +116,19 @@ function Container({
     chrono5(false);
     setIsValidated(true);
   };
-  checkAnswer5(friseFilm, question, score, updateScore, isValidated);
+  checkAnswer5(friseFilm, question, isValidated);
 
   return (
     <div>
       <div style={style}> {cards.map((card, i) => renderCard(card, i))} </div>
       <div className="validate_button">
-        <Link to="/game/two-movies">
-          <button
-            type="button"
-            className="play_button"
-            onClick={() => handleOnClickValidation()}
-          >
-            VALIDER
-          </button>
-        </Link>
+        <button
+          type="button"
+          className="play_button"
+          onClick={() => handleOnClickValidation()}
+        >
+          VALIDER
+        </button>
       </div>
     </div>
   );

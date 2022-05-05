@@ -1,9 +1,11 @@
 import React, { useContext } from "react";
+import { ScoreContext } from "../contexts/scoreContext";
 import "../App.css";
 import { TimerContext } from "../contexts/TimerContext";
 import { Timer5Context } from "../contexts/Timer5Context";
 
-function TitleBar({ title, score }) {
+function TitleBar({ title }) {
+  const { score } = useContext(ScoreContext);
   const { timer } = useContext(TimerContext);
   const { timer5 } = useContext(Timer5Context);
   let timerScreen = 0;
@@ -15,7 +17,7 @@ function TitleBar({ title, score }) {
       timerScreen = timer5;
     }
   }, [title[1]]);
-
+  
   if (title[1] === "main") {
     return (
       <div className="title_bar">
@@ -23,6 +25,7 @@ function TitleBar({ title, score }) {
       </div>
     );
   }
+
   return (
     <div className="title_bar">
       <p>{timerScreen}</p>

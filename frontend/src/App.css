@@ -140,7 +140,7 @@ p {
   flex-shrink: 0;
 }
 
-#marquee .pic{
+#marquee .pic {
   background-image: url("./assets/loading.png");
   background-size: cover;
   background-position: center;
@@ -217,11 +217,11 @@ p {
 }
 
 .CardConfig__Affiche {
-background-image: url("./assets/loading.png");
-background-size: cover;
-background-position: center;
-height: 38vh;
-width: 25vh;
+  background-image: url("./assets/loading.png");
+  background-size: cover;
+  background-position: center;
+  height: 38vh;
+  width: 25vh;
 }
 
 .CardConfig__side--back {
