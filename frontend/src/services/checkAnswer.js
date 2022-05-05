@@ -1,10 +1,10 @@
 import React, { useContext } from "react";
-import { ScoreContext } from "../contexts/scoreContext";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { ScoreContext } from "../contexts/scoreContext";
 
 const checkAnswer = (idFilm1, idFilm2, idClicked, type, topic) => {
-  let navigate = useNavigate();
+  const navigate = useNavigate();
   const { score, setScore } = useContext(ScoreContext);
   const apiKey = "8b3e8af5c0e9e0a359483a16acf719e2";
 
@@ -95,34 +95,34 @@ const checkAnswer = (idFilm1, idFilm2, idClicked, type, topic) => {
         case type === "MAX" &&
           film1 >= film2 &&
           parseInt(idClicked, 10) === idFilm1:
-          console.log(`1 - ${film1} - ${film2}`);
+          console.warn(`1 - ${film1} - ${film2}`);
           setScore(score + 1000);
           navigate("/game/five-movies");
           break;
         case type === "MAX" &&
           film1 <= film2 &&
           parseInt(idClicked, 10) === idFilm2:
-          console.log(`2 - ${film1} - ${film2}`);
+          console.warn(`2 - ${film1} - ${film2}`);
           setScore(score + 1000);
           navigate("/game/five-movies");
           break;
         case type === "MIN" &&
           film1 <= film2 &&
           parseInt(idClicked, 10) === idFilm1:
-          console.log(`3 - ${film1} - ${film2}`);
+          console.warn(`3 - ${film1} - ${film2}`);
           setScore(score + 1000);
           navigate("/game/five-movies");
           break;
         case type === "MIN" &&
           film1 >= film2 &&
           parseInt(idClicked, 10) === idFilm2:
-          console.log(`4 - ${film1} - ${film2}`);
+          console.warn(`4 - ${film1} - ${film2}`);
           setScore(score + 1000);
           navigate("/game/five-movies");
 
           break;
         default:
-          console.log(5);
+          console.warn(5);
           navigate("/game/five-movies");
       }
     }

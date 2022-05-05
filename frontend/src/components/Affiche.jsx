@@ -1,9 +1,7 @@
 import React from "react";
-import chrono from "../services/chrono";
 
 function Affiche({ id, titre, affiche, setIdClicked }) {
   const handleChooseOneFilm = (e) => {
-    chrono(false);
     setIdClicked(e.target.value);
   };
 

@@ -8,16 +8,7 @@ function TitleBar({ title }) {
   const { score } = useContext(ScoreContext);
   const { timer } = useContext(TimerContext);
   const { timer5 } = useContext(Timer5Context);
-  let timerScreen = 0;
 
-  React.useEffect(() => {
-    if (title[1] === "question2") {
-      timerScreen = timer;
-    } else {
-      timerScreen = timer5;
-    }
-  }, [title[1]]);
-  
   if (title[1] === "main") {
     return (
       <div className="title_bar">
@@ -25,12 +16,18 @@ function TitleBar({ title }) {
       </div>
     );
   }
-
+  if (title[1] === "question2" || title[1] === "question5") {
+    return (
+      <div className="title_bar">
+        <p>{title[1] === "question2" ? timer : timer5}</p>
+        <h2>{title[0]}</h2>
+        <p>{score} pt(s)</p>
+      </div>
+    );
+  }
   return (
     <div className="title_bar">
-      <p>{timerScreen}</p>
-      <h2>{title[0]}</h2>
-      <p>{score} pt(s)</p>
+      <h1>{title[0]}</h1>
     </div>
   );
 }

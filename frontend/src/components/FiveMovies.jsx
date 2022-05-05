@@ -15,7 +15,7 @@ function Dnd({ updateTitleMain }) {
   const film3 = getRandomMovie();
   const film4 = getRandomMovie();
   const film5 = getRandomMovie();
-  
+
   React.useEffect(() => {
     if (nbQuestion >= 5) {
       navigate("/ScoreScreen");
