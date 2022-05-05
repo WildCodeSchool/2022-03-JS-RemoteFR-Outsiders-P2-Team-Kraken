@@ -363,6 +363,13 @@ body.active-modal {
   position: fixed;
 }
 
+.modal_pseudo {
+  width: 100vw;
+  height: 20vh;
+  height: 20vmin;
+  position: fixed;
+}
+
 .overlay {
   background: rgba(0, 0, 0, 0.819);
   
@@ -377,6 +384,24 @@ body.active-modal {
   padding: 14px 28px;
   min-width: 80rem;
   min-height: 42rem;
+  border-radius: 15px;
+  animation: fadein 0.8s;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: space-around; 
+}
+
+.modal-content_pseudo {
+  position: absolute;
+  top: -22vh;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  line-height: 1.4;
+  background: #950235;
+  padding: 14px 28px;
+  min-width: 60rem;
+  min-height: 50vh;
   border-radius: 15px;
   animation: fadein 0.8s;
   display: flex;

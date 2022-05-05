@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import CardConfig from "./CardConfig";
 
 function Configuration({ pseudo, handlePseudoChange }) {
@@ -10,8 +11,19 @@ function Configuration({ pseudo, handlePseudoChange }) {
           les thèmes et les années des films 
           pour vous perfectionner ou pour encore plus de challenge !`;
 
-  const handleClickSubmit = () => {
-    /* A écrire pour passer à la page suivante */
+  const navigate = useNavigate();
+  const [modal, setModal] = React.useState(false);
+
+  const toggleModal = () => {
+    setModal(!modal);
+  };
+  const handleClickSubmit = (e) => {
+    e.preventDefault();
+    if (pseudo !== "") {
+      navigate("/game/two-movies");
+    } else {
+      toggleModal();
+    }
   };
 
   return (
@@ -36,6 +48,7 @@ function Configuration({ pseudo, handlePseudoChange }) {
               name="pseudo"
               placeholder="Votre pseudo ici"
               id="pseudo"
+              required
               onChange={handlePseudoChange}
             />
           </h2>
@@ -67,6 +80,21 @@ function Configuration({ pseudo, handlePseudoChange }) {
           </div>
         </div>
       </form>
+      {modal && (
+        <div className="modal_pseudo">
+          <div aria-hidden="true" onClick={toggleModal} className="overlay" />
+          <div className="modal-content_pseudo">
+            <div className="rules">
+              <h2>Pseudo requis pour jouer !</h2>
+            </div>
+            <div className="exit-modal">
+              <button type="button" className="exit-btn" onClick={toggleModal}>
+                RETOUR
+              </button>{" "}
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
