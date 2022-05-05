@@ -7,6 +7,8 @@ import TwoMovies from "../components/TwoMovies";
 import Dnd from "../components/FiveMovies";
 import { TimerContextProvider } from "../contexts/TimerContext";
 import { Timer5ContextProvider } from "../contexts/Timer5Context";
+import ScoreScreen from "../components/ScoreScreen";
+import { QuestionContextProvider } from "../contexts/QuestionContext";
 import "../App.css";
 
 function Home() {
@@ -20,13 +22,8 @@ function Home() {
     setPseudo(e.target.value);
   };
 
-  const [score, setScore] = React.useState(0);
-  const updateScore = (points) => {
-    const newScore = score + points;
-    setScore(newScore);
-  };
-
   return (
+  <QuestionContextProvider>
     <Timer5ContextProvider>
       <TimerContextProvider>
         <div className="screen">
@@ -70,6 +67,7 @@ function Home() {
         </div>
       </TimerContextProvider>
     </Timer5ContextProvider>
+  </QuestionContextProvider>
   );
 }
 
