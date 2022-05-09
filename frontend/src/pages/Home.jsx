@@ -35,7 +35,12 @@ function Home() {
                   <Route path="/" element={<HomeContent />} />
                   <Route
                     path="/ScoreScreen"
-                    element={<ScoreScreen updateTitleMain={updateTitleMain} />}
+                    element={
+                      <ScoreScreen
+                        updateTitleMain={updateTitleMain}
+                        pseudo={pseudo}
+                      />
+                    }
                   />
                   <Route
                     path="/configuration"

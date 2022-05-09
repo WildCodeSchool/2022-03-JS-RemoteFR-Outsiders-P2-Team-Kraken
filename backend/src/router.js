@@ -12,6 +12,7 @@ router.post("/items", ItemController.add);
 router.delete("/items/:id", ItemController.delete);
 
 router.get("/players", PlayerController.browse);
+router.get("/players/top10", PlayerController.browse10);
 router.get("/players/:id", PlayerController.read);
 router.put("/players/:id", PlayerController.edit);
 router.post("/players", PlayerController.add);
