@@ -1,7 +1,6 @@
 import React from "react";
-import { Link } from "react-router-dom";
 
-function CardConfig({ title, explication, ready }) {
+function CardConfig({ title, explication, ready, handleClickSubmit }) {
   return (
     <div className="CardConfig">
       <div className="CardConfig__side CardConfig__side--front">
@@ -12,11 +11,13 @@ function CardConfig({ title, explication, ready }) {
           <div>
             <p>{explication}</p>
             {ready ? (
-              <Link to="/game/two-movies">
-                <button type="button" className="select_button">
-                  Sélectionner
-                </button>
-              </Link>
+              <button
+                type="submit"
+                className="select_button"
+                onClick={(e) => handleClickSubmit(e)}
+              >
+                Sélectionner
+              </button>
             ) : (
               <button type="button" className="select_button">
                 Non disponible
