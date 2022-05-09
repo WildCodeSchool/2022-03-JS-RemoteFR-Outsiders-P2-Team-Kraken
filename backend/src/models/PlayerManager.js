@@ -16,6 +16,12 @@ class PlayerManager extends AbstractManager {
       [player.pseudo, player.id]
     );
   }
+
+  findTop10() {
+    return this.connection.query(
+      `select * from  ${this.table} ORDER BY score DESC LIMIT 10`
+    );
+  }
 }
 
 module.exports = PlayerManager;
