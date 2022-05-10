@@ -513,3 +513,41 @@ figcaption {
   margin-top: 1rem;
   margin-bottom: 1rem;
 }
+
+/*
+** Scoreboard
+*/
+
+.scoreboard{
+  width: 40%;
+  margin: 2rem auto;
+  border: 2px solid var(--color-title-bar);
+  border-radius: 1rem;
+  overflow: hidden;
+
+  letter-spacing: 0.2rem;
+}
+
+.scoreboard-title{
+  font-size: 2rem;
+  background-color: #585858;
+  padding: 1rem;
+}
+
+.scoreboard-top10{
+  padding: 0.5rem;
+  font-size: 1.2rem;
+
+  display: flex;
+  justify-content: space-between;
+}
+
+.scoreboard-top10:nth-child(odd){
+  background-color: var(--color-title-bar);
+}
+
+.scoreboard-position{
+  width: 2rem;
+  text-align: center;
+}
+
