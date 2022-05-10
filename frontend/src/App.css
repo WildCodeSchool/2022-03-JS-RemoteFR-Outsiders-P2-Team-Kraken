@@ -85,7 +85,6 @@ p {
   padding: 16px 60px;
   text-decoration: none;
   transition: 0.3s;
-  
 }
 
 .play_button:hover {
@@ -99,8 +98,6 @@ p {
   transform: translate(-50%);
   position: absolute;
   bottom: 0;
-  
-
 }
 
 .btn-sound {
@@ -109,7 +106,7 @@ p {
   font-size: 18px;
   background: none;
   color: white;
-  border : none;
+  border: none;
   font-size: 3rem;
 }
 
@@ -339,10 +336,8 @@ p {
 /*********** MODAL *************************/
 /*******************************************/
 
-
 body.active-modal {
   overflow-y: hidden;
-
 }
 
 .btn-modal {
@@ -351,12 +346,13 @@ body.active-modal {
   font-size: 18px;
   background: none;
   color: white;
-  border : none;
+  border: none;
   font-size: 3rem;
   cursor: pointer;
 }
 
-.modal, .overlay {
+.modal,
+.overlay {
   width: 100vw;
   height: 100vh;
   height: 130vmin;
@@ -372,7 +368,6 @@ body.active-modal {
 
 .overlay {
   background: rgba(0, 0, 0, 0.819);
-  
 }
 .modal-content {
   position: absolute;
@@ -389,7 +384,7 @@ body.active-modal {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  align-content: space-around; 
+  align-content: space-around;
 }
 
 .modal-content_pseudo {
@@ -407,10 +402,12 @@ body.active-modal {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  align-content: space-around; 
+  align-content: space-around;
 }
 
-.modal-content h1, p, li {
+.modal-content h1,
+p,
+li {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 1.5rem;
 }
@@ -429,18 +426,14 @@ body.active-modal {
   align-items: center;
 }
 
-
-
-
 @keyframes fadein {
-	from {
-		opacity:0;
-	}
-	to {
-		opacity:1;
-	}
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
-
 
 /*******************************************/
 /*********** MODAL CONTENT *****************/
@@ -454,9 +447,7 @@ figcaption {
 
 .rules {
   height: 20rem;
-  
 }
-
 
 .exit-modal {
   position: fixed;
@@ -466,7 +457,6 @@ figcaption {
   align-items: center;
   justify-content: center;
   width: 100%;
-
 }
 
 .exit-btn {
@@ -483,7 +473,7 @@ figcaption {
   transition: 0.3s;
 }
 
-.exit-btn:hover{
+.exit-btn:hover {
   background-color: #212121;
 }
 
@@ -494,13 +484,12 @@ figcaption {
   justify-content: space-between;
   height: 23rem;
 }
-.dev-team img{
+.dev-team img {
   height: 12rem;
   width: auto;
 }
 
 .modal-content input {
-  
   position: absolute;
   clip: rect(0 0 0 0);
   overflow: hidden;
@@ -524,10 +513,6 @@ figcaption {
   margin-top: 1rem;
   margin-bottom: 1rem;
 }
-
-
-
-
 
 /*
 ** Scoreboard
@@ -565,5 +550,4 @@ figcaption {
   width: 2rem;
   text-align: center;
 }
-
 
