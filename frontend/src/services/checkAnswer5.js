@@ -2,8 +2,12 @@ import React, { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { ScoreContext } from "../contexts/scoreContext";
+import goodFx from "./goodFx";
+import wrongFx from "./wrongFx";
+import { SoundContext } from "../contexts/SoundContext";
 
 const checkAnswer5 = (friseFilm, question, isValidated) => {
+  const { mute } = useContext(SoundContext);
   const apiKey = "8b3e8af5c0e9e0a359483a16acf719e2";
   const navigate = useNavigate();
   const { topic } = question;
@@ -203,6 +207,11 @@ const checkAnswer5 = (friseFilm, question, isValidated) => {
           questionPoints += 1000;
         }
         setScore(score + questionPoints);
+        if (questionPoints >= 3000) {
+          goodFx(mute);
+        } else {
+          wrongFx(mute);
+        }
         navigate("/game/two-movies");
         break;
       case type === "DESC":
@@ -235,6 +244,11 @@ const checkAnswer5 = (friseFilm, question, isValidated) => {
           questionPoints += 1000;
         }
         setScore(score + questionPoints);
+        if (questionPoints >= 3000) {
+          goodFx(mute);
+        } else {
+          wrongFx(mute);
+        }
         navigate("/game/two-movies");
         break;
       default:

@@ -4,12 +4,14 @@ const QuestionContext = createContext();
 
 function QuestionContextProvider({ children }) {
   const [nbQuestion, setNbQuestion] = useState(0);
+  /* eslint-disable */
 
   return (
-    <QuestionContext.Provider value={{ nbQuestion, setNbQuestion }}> {/* eslint-disable-line */}
+    <QuestionContext.Provider value={{ nbQuestion, setNbQuestion }}>
       {children}
     </QuestionContext.Provider>
   );
+  /* eslint-enable */
 }
 
 export { QuestionContext, QuestionContextProvider };

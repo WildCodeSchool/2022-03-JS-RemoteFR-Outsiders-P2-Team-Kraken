@@ -1,11 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import chrono from "../services/chrono";
 import chrono5 from "../services/chrono5";
 import { ScoreContext } from "../contexts/scoreContext";
+import hoverBtn from "../services/hoverBtn";
+import { SoundContext } from "../contexts/SoundContext";
 
 function ScoreScreen({ updateTitleMain, pseudo }) {
+  const { mute } = useContext(SoundContext);
   const { score } = React.useContext(ScoreContext);
   let isScoreReady = false;
   let isScoreloaded = false;
@@ -73,7 +76,11 @@ function ScoreScreen({ updateTitleMain, pseudo }) {
         }}
       >
         <Link to="/configuration">
-          <button type="button" className="play_button">
+          <button
+            type="button"
+            className="play_button"
+            onMouseEnter={() => hoverBtn(mute)}
+          >
             REJOUER
           </button>
         </Link>

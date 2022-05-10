@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
+import { SoundContext } from "../contexts/SoundContext";
+import hoverAff from "../services/hoverAff";
 
 function CardConfig({ title, explication, ready, handleClickSubmit }) {
+  const { mute } = useContext(SoundContext);
   return (
-    <div className="CardConfig">
+    <div className="CardConfig" onMouseEnter={() => hoverAff(mute)}>
       <div className="CardConfig__side CardConfig__side--front">
         <h4>{title}</h4>
       </div>
