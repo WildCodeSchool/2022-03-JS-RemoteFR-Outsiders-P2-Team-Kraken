@@ -65,14 +65,18 @@ function ScoreScreen({ updateTitleMain, pseudo }) {
           marginTop: "2rem",
         }}
       >
-        table des scores :
-        {tableScore.map((e) => {
-          return (
-            <div>
-              {e.id} - {e.pseudo} - {e.score}
-            </div>
-          );
-        })}
+        <div className="scoreboard">
+          <div className="scoreboard-title">Table des scores</div>
+          {tableScore.map((e, i) => {
+            return (
+              <div className="scoreboard-top10">
+                <div className="scoreboard-position">{i + 1}</div>
+                <div>{e.pseudo}</div>
+                <div>{e.score}</div>
+              </div>
+            );
+          })}
+        </div>
       </div>
       <div
         style={{
