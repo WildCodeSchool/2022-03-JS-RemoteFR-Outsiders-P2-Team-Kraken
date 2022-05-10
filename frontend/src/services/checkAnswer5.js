@@ -2,12 +2,15 @@ import React, { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { ScoreContext } from "../contexts/scoreContext";
+import { TimerContext } from "../contexts/TimerContext";
+import modificationPoints from "./modificationPoints";
 
 const checkAnswer5 = (friseFilm, question, isValidated) => {
   const apiKey = "8b3e8af5c0e9e0a359483a16acf719e2";
   const navigate = useNavigate();
   const { topic } = question;
   const { type } = question;
+  const { timer } = useContext(TimerContext);
   const { score, setScore } = useContext(ScoreContext);
   const [film1, setFilm1] = React.useState({});
   const [film2, setFilm2] = React.useState({});
@@ -202,7 +205,7 @@ const checkAnswer5 = (friseFilm, question, isValidated) => {
         if (film4 <= film5) {
           questionPoints += 1000;
         }
-        setScore(score + questionPoints);
+        setScore(score + modificationPoints(questionPoints, 5, timer));
         navigate("/game/two-movies");
         break;
       case type === "DESC":
@@ -234,7 +237,7 @@ const checkAnswer5 = (friseFilm, question, isValidated) => {
         if (film4 >= film5) {
           questionPoints += 1000;
         }
-        setScore(score + questionPoints);
+        setScore(score + modificationPoints(questionPoints, 5, timer));
         navigate("/game/two-movies");
         break;
       default:
