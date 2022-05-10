@@ -11,7 +11,6 @@ function Page404({ updateTitleMain }) {
     <div>
       <div
         style={{
-          height: "50vh",
           maxWidth: "80%",
           margin: "0 auto",
           justifyItems: "center",
@@ -33,9 +32,19 @@ function Page404({ updateTitleMain }) {
           />
         </div>
       </div>
-      <Link to="/">
-        <button type="button">{`Retour à l'Acceuil`}</button>
-      </Link>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+        }}
+      >
+        <Link to="/">
+          <button
+            type="button"
+            className="select_button"
+          >{`Retour à l'Acceuil`}</button>
+        </Link>
+      </div>
     </div>
   );
 }
