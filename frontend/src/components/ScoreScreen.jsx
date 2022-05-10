@@ -4,9 +4,12 @@ import axios from "axios";
 import chrono from "../services/chrono";
 import chrono5 from "../services/chrono5";
 import { ScoreContext } from "../contexts/scoreContext";
+import { SoundContext } from "../contexts/SoundContext";
+import hoverBtn from "../services/hoverBtn";
 import { QuestionContext } from "../contexts/QuestionContext";
 
 function ScoreScreen({ updateTitleMain, pseudo }) {
+  const { mute } = React.useContext(SoundContext);
   const { score, setScore } = React.useContext(ScoreContext);
   const { setNbQuestion } = React.useContext(QuestionContext);
   let isScoreReady = false;
@@ -91,6 +94,7 @@ function ScoreScreen({ updateTitleMain, pseudo }) {
           onClick={() => {
             handleClickReplay();
           }}
+          onMouseEnter={() => hoverBtn(mute)}
         >
           REJOUER
         </button>

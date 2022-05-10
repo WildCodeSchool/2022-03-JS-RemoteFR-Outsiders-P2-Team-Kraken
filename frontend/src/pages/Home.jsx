@@ -11,6 +11,7 @@ import { TimerContextProvider } from "../contexts/TimerContext";
 import { Timer5ContextProvider } from "../contexts/Timer5Context";
 import ScoreScreen from "../components/ScoreScreen";
 import { QuestionContextProvider } from "../contexts/QuestionContext";
+import { SoundContextProvider } from "../contexts/SoundContext";
 import "../App.css";
 
 function Home() {
@@ -25,8 +26,9 @@ function Home() {
   };
 
   return (
-    <QuestionContextProvider>
-      <ScoreContextProvider>
+   <QuestionContextProvider>
+     <SoundContextProvider>
+       <ScoreContextProvider>
         <Timer5ContextProvider>
           <TimerContextProvider>
             <div className="screen">
@@ -82,9 +84,10 @@ function Home() {
                 </Routes>
               </div>
             </div>
-          </TimerContextProvider>
-        </Timer5ContextProvider>
-      </ScoreContextProvider>
+            </TimerContextProvider>
+          </Timer5ContextProvider>
+        </ScoreContextProvider>
+      </SoundContextProvider>
     </QuestionContextProvider>
   );
 }

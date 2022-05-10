@@ -6,6 +6,7 @@ import checkAnswer5 from "../services/checkAnswer5";
 import Card from "./CardFiveMovies";
 import chrono from "../services/chrono";
 import chrono5 from "../services/chrono5";
+import hoverBtn from "../services/hoverBtn";
 
 const style = {
   display: "flex",
@@ -142,6 +143,7 @@ function Container({ updateTitleMain, film1, film2, film3, film4, film5 }) {
           type="button"
           className={`play_button ${isDisplay}`}
           onClick={() => handleOnClickValidation()}
+          onMouseEnter={hoverBtn}
         >
           VALIDER
         </button>
