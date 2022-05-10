@@ -1,14 +1,41 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import image404 from "../assets/image404.png";
 
-function Page404() {
+function Page404({ updateTitleMain }) {
+  React.useEffect(() => {
+    updateTitleMain(["404", "main"]);
+  }, []);
+
   return (
-    <div style={{ width: "90%", margin: "0 auto" }}>
-      <img
-        style={{ width: "100%" }}
-        src={image404}
-        alt="This isn't the page you're looking for"
-      />
+    <div>
+      <div
+        style={{
+          height: "50vh",
+          maxWidth: "80%",
+          margin: "0 auto",
+          justifyItems: "center",
+        }}
+      >
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+          }}
+        >
+          <img
+            style={{
+              maxwidth: "100%",
+              maxHeight: "50vh",
+            }}
+            src={image404}
+            alt="This isn't the page you're looking for"
+          />
+        </div>
+      </div>
+      <Link to="/">
+        <button type="button">{`Retour à l'Acceuil`}</button>
+      </Link>
     </div>
   );
 }
