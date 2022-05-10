@@ -5,6 +5,7 @@ import Configuration from "../components/Configuration";
 import TitleBar from "../components/TitleBar";
 import TwoMovies from "../components/TwoMovies";
 import Dnd from "../components/FiveMovies";
+import Page404 from "../components/Page404";
 import { ScoreContextProvider } from "../contexts/scoreContext";
 import { TimerContextProvider } from "../contexts/TimerContext";
 import { Timer5ContextProvider } from "../contexts/Timer5Context";
@@ -64,6 +65,15 @@ function Home() {
                     path="/game/five-movies"
                     element={
                       <Dnd
+                        updateTitleMain={updateTitleMain}
+                        titleMain={titleMain}
+                      />
+                    }
+                  />
+                  <Route
+                    path="/*"
+                    element={
+                      <Page404
                         updateTitleMain={updateTitleMain}
                         titleMain={titleMain}
                       />
