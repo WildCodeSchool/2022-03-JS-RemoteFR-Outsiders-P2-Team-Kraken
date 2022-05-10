@@ -3,9 +3,13 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { TimerContext } from "../contexts/TimerContext";
 import { ScoreContext } from "../contexts/scoreContext";
+import goodFx from "./goodFx";
+import wrongFx from "./wrongFx";
+import { SoundContext } from "../contexts/SoundContext";
 import modificationPoints from "./modificationPoints";
 
 const checkAnswer = (idFilm1, idFilm2, idClicked, type, topic) => {
+  const { mute } = useContext(SoundContext);
   const navigate = useNavigate();
   const { score, setScore } = useContext(ScoreContext);
   const { timer } = useContext(TimerContext);
@@ -101,6 +105,7 @@ const checkAnswer = (idFilm1, idFilm2, idClicked, type, topic) => {
           parseInt(idClicked, 10) === idFilm1:
           console.warn(`1 - ${film1} - ${film2}`);
           setScore(score + modificationPoints(1000, 2, timer));
+          goodFx(mute);
           navigate("/game/five-movies");
           break;
         case type === "MAX" &&
@@ -108,6 +113,7 @@ const checkAnswer = (idFilm1, idFilm2, idClicked, type, topic) => {
           parseInt(idClicked, 10) === idFilm2:
           console.warn(`2 - ${film1} - ${film2}`);
           setScore(score + modificationPoints(1000, 2, timer));
+          goodFx(mute);
           navigate("/game/five-movies");
           break;
         case type === "MIN" &&
@@ -115,6 +121,8 @@ const checkAnswer = (idFilm1, idFilm2, idClicked, type, topic) => {
           parseInt(idClicked, 10) === idFilm1:
           console.warn(`3 - ${film1} - ${film2}`);
           setScore(score + modificationPoints(1000, 2, timer));
+          goodFx(mute);
+
           navigate("/game/five-movies");
           break;
         case type === "MIN" &&
@@ -122,10 +130,12 @@ const checkAnswer = (idFilm1, idFilm2, idClicked, type, topic) => {
           parseInt(idClicked, 10) === idFilm2:
           console.warn(`4 - ${film1} - ${film2}`);
           setScore(score + modificationPoints(1000, 2, timer));
+          goodFx(mute);
           navigate("/game/five-movies");
 
           break;
         default:
+          wrongFx(mute);
           console.warn(5);
           navigate("/game/five-movies");
       }

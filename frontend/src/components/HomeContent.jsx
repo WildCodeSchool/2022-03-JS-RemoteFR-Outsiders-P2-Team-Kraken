@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import {
   faQuestionCircle,
+  faVolumeHigh,
   faVolumeMute,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -11,9 +12,16 @@ import Abdallah from "../assets/Abdallah_MESBAHI.jpg";
 import Audren from "../assets/Audren_FLOCH.jpg";
 import Kevin from "../assets/Kevin_PESET.jpg";
 import Sebastien from "../assets/Sébastien_PUIGRENIER.jpg";
+import hoverBtn from "../services/hoverBtn";
+import { SoundContext } from "../contexts/SoundContext";
 
 function HomeContent() {
   const [modal, setModal] = useState(false);
+  const { mute, setMute } = useContext(SoundContext);
+
+  const soundOff = () => {
+    setMute(!mute);
+  };
 
   const toggleModal = () => {
     setModal(!modal);
@@ -24,11 +32,21 @@ function HomeContent() {
       <Carousel />
       <div className="container_button">
         <div className="try">
-          <button type="button" className="btn-sound">
-            <FontAwesomeIcon className="sound_icon" icon={faVolumeMute} />
+          <button type="button" className="btn-sound" onClick={soundOff}>
+            <div>
+              {mute ? (
+                <FontAwesomeIcon className="sound_icon" icon={faVolumeMute} />
+              ) : (
+                <FontAwesomeIcon className="sound_icon" icon={faVolumeHigh} />
+              )}
+            </div>
           </button>
           <Link to="/configuration">
-            <button type="button" className="play_button">
+            <button
+              type="button"
+              className="play_button"
+              onMouseEnter={() => hoverBtn(mute)}
+            >
               JOUER
             </button>
           </Link>
@@ -88,6 +106,7 @@ function HomeContent() {
                     type="button"
                     className="exit-btn"
                     onClick={toggleModal}
+                    onMouseEnter={() => hoverBtn(mute)}
                   >
                     ACCUEIL
                   </button>{" "}

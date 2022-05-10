@@ -6,6 +6,7 @@ import checkAnswer5 from "../services/checkAnswer5";
 import Card from "./CardFiveMovies";
 import chrono from "../services/chrono";
 import chrono5 from "../services/chrono5";
+import hoverBtn from "../services/hoverBtn";
 
 const style = {
   display: "flex",
@@ -119,16 +120,35 @@ function Container({ updateTitleMain, film1, film2, film3, film4, film5 }) {
   };
   checkAnswer5(friseFilm, question, isValidated);
 
+  const [isDisplay, setisDisplay] = useState("display-none");
+  const [isBtnLoading, setisBtnLoading] = useState("display-block");
+  useEffect(() => {
+    if (
+      typeof cards[0].id_api === "number" &&
+      typeof cards[1].id_api === "number" &&
+      typeof cards[2].id_api === "number" &&
+      typeof cards[3].id_api === "number" &&
+      typeof cards[4].id_api === "number"
+    ) {
+      setisDisplay("display-block");
+      setisBtnLoading("display-none");
+    }
+  }, [cards]);
+
   return (
     <div>
       <div style={style}> {cards.map((card, i) => renderCard(card, i))} </div>
       <div className="validate_button">
         <button
           type="button"
-          className="play_button"
+          className={`play_button ${isDisplay}`}
           onClick={() => handleOnClickValidation()}
+          onMouseEnter={hoverBtn}
         >
           VALIDER
+        </button>
+        <button type="button" className={`play_button ${isBtnLoading}`}>
+          Chargement...
         </button>
       </div>
     </div>

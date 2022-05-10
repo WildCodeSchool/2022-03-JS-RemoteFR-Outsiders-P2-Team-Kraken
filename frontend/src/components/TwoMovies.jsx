@@ -20,7 +20,7 @@ function TwoMovies({ updateTitleMain }) {
   chrono(true);
 
   React.useEffect(() => {
-    if (nbQuestion >= 5) {
+    if (nbQuestion >= 10) {
       navigate("/ScoreScreen");
     }
     setNbQuestion(nbQuestion + 1);

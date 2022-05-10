@@ -1,6 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import CardConfig from "./CardConfig";
+import hoverBtn from "../services/hoverBtn";
 
 function Configuration({ pseudo, handlePseudoChange }) {
   const explicationClassique = `
@@ -88,7 +89,12 @@ function Configuration({ pseudo, handlePseudoChange }) {
               <h2>Pseudo requis pour jouer !</h2>
             </div>
             <div className="exit-modal">
-              <button type="button" className="exit-btn" onClick={toggleModal}>
+              <button
+                type="button"
+                className="exit-btn"
+                onClick={toggleModal}
+                onMouseEnter={hoverBtn}
+              >
                 RETOUR
               </button>{" "}
             </div>

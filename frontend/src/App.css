@@ -253,7 +253,7 @@ p {
 }
 
 .select_button {
-  margin-top: 2rem;
+  margin: 2rem auto;
   background-color: var(--color-background);
   border: 6px solid var(--color-title-bar);
   display: inline-block;
@@ -572,4 +572,12 @@ figcaption {
 .scoreboard-position {
   width: 2rem;
   text-align: center;
+}
+
+.display-block{
+  display: block;
+}
+
+.display-none{
+  display: none;
 }

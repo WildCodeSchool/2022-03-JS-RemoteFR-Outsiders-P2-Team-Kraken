@@ -5,11 +5,13 @@ import Configuration from "../components/Configuration";
 import TitleBar from "../components/TitleBar";
 import TwoMovies from "../components/TwoMovies";
 import Dnd from "../components/FiveMovies";
+import Page404 from "../components/Page404";
 import { ScoreContextProvider } from "../contexts/scoreContext";
 import { TimerContextProvider } from "../contexts/TimerContext";
 import { Timer5ContextProvider } from "../contexts/Timer5Context";
 import ScoreScreen from "../components/ScoreScreen";
 import { QuestionContextProvider } from "../contexts/QuestionContext";
+import { SoundContextProvider } from "../contexts/SoundContext";
 import "../App.css";
 
 function Home() {
@@ -24,8 +26,9 @@ function Home() {
   };
 
   return (
-    <QuestionContextProvider>
-      <ScoreContextProvider>
+   <QuestionContextProvider>
+     <SoundContextProvider>
+       <ScoreContextProvider>
         <Timer5ContextProvider>
           <TimerContextProvider>
             <div className="screen">
@@ -69,12 +72,22 @@ function Home() {
                       />
                     }
                   />
+                  <Route
+                    path="/*"
+                    element={
+                      <Page404
+                        updateTitleMain={updateTitleMain}
+                        titleMain={titleMain}
+                      />
+                    }
+                  />
                 </Routes>
               </div>
             </div>
-          </TimerContextProvider>
-        </Timer5ContextProvider>
-      </ScoreContextProvider>
+            </TimerContextProvider>
+          </Timer5ContextProvider>
+        </ScoreContextProvider>
+      </SoundContextProvider>
     </QuestionContextProvider>
   );
 }
