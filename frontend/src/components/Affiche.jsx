@@ -8,6 +8,15 @@ function Affiche({ id, titre, affiche, setIdClicked }) {
     setIdClicked(e.target.value);
   };
 
+  const [isDisplay, setisDisplay] = React.useState("display-none");
+  const [isBtnLoading, setisBtnLoading] = React.useState("display-block");
+  React.useEffect(() => {
+    if (typeof titre === "string") {
+      setisDisplay("display-block");
+      setisBtnLoading("display-none");
+    }
+  }, [titre]);
+
   return (
     <div className="CardConfig">
       <div
@@ -20,14 +29,23 @@ function Affiche({ id, titre, affiche, setIdClicked }) {
         <div className="CardConfig__cta">
           <div>
             <h4>{titre}</h4>
-            <button
-              type="button"
-              value={id}
-              className="select_button"
-              onClick={(e) => handleChooseOneFilm(e)}
-            >
-              Sélectionner
-            </button>
+            <div>
+              <button
+                type="button"
+                value={id}
+                className={`select_button ${isDisplay}`}
+                onClick={(e) => handleChooseOneFilm(e)}
+              >
+                Sélectionner
+              </button>
+              <button
+                type="button"
+                value={id}
+                className={`select_button ${isBtnLoading}`}
+              >
+                Chargement...
+              </button>
+            </div>
           </div>
         </div>
       </div>

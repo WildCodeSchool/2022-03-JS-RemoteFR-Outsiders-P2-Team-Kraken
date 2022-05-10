@@ -7,8 +7,6 @@ function Timer5ContextProvider({ children }) {
   /* eslint-disable */
   return (
     <Timer5Context.Provider value={{ timer5, setTimer5 }}>
-      {" "}
-      {/* eslint-disable-line */}
       {children}
     </Timer5Context.Provider>
   );
