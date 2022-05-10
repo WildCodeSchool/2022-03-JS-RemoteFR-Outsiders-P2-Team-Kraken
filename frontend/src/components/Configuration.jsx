@@ -83,7 +83,7 @@ function Configuration({ pseudo, handlePseudoChange }) {
       </form>
       {modal && (
         <div className="modal_pseudo">
-          <div aria-hidden="true" onClick={toggleModal} className="overlay" />
+          <div aria-hidden="true" onClick={toggleModal} className="overlay2" />
           <div className="modal-content_pseudo">
             <div className="rules">
               <h2>Pseudo requis pour jouer !</h2>

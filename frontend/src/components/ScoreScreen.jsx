@@ -60,7 +60,7 @@ function ScoreScreen({ updateTitleMain, pseudo }) {
         }}
       >
         <p>Bravo {pseudo} !</p>
-        <p>ton score: {score}</p>
+        <p>Score: {score}</p>
       </div>
       <div
         style={{

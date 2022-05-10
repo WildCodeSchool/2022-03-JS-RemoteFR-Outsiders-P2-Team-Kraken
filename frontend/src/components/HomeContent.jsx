@@ -71,11 +71,11 @@ function HomeContent() {
                   <ul>
                     <li>
                       Le duel : Tu vas devoir choisir la bonne réponse parmi un
-                      choix de deux films
+                      choix de deux films.
                     </li>
                     <li>
                       La frise : Tu vas devoir classer les films dans
-                      l&apos;ordre selon la question
+                      l&apos;ordre selon la question.
                     </li>
                   </ul>
                   <p>Plus tu vas vite, et plus tu marques de points !</p>

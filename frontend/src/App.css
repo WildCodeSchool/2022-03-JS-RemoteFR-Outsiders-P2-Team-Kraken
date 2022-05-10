@@ -70,6 +70,7 @@ h2 {
 p {
   font-size: 1.5rem;
 }
+
 /*******************************************/
 /*********** BOUTONS ***********************/
 /*******************************************/
@@ -185,7 +186,7 @@ p {
 }
 
 .CardConfig h4 {
-  font-size: 2vw;
+  font-size: 1.7vw;
   font-weight: 200;
   margin-top: 3rem;
 }
@@ -310,6 +311,7 @@ p {
   color: #585858;
   text-decoration: none;
 }
+
 .div-5-films {
   background-image: url("./assets/loading.png");
   background-size: cover;
@@ -323,13 +325,14 @@ p {
   height: 38vh;
   width: 25vh;
   border: 1px solid var(--color-title-bar);
+  border-radius: 3px;
 }
 
 .validate_button {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 1rem;
+  margin-top: 1.8rem;
 }
 
 /*******************************************/
@@ -369,6 +372,7 @@ body.active-modal {
 .overlay {
   background: rgba(0, 0, 0, 0.819);
 }
+
 .modal-content {
   position: absolute;
   top: 40%;
@@ -430,6 +434,7 @@ li {
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
@@ -445,14 +450,19 @@ figcaption {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+.modal_pseudo {
+  z-index: 10;
+}
+
 .rules {
   height: 20rem;
+  padding-top: 6rem;
 }
 
 .exit-modal {
   position: fixed;
   bottom: 0;
-  padding: 1rem;
+  padding-bottom: 4rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -471,10 +481,19 @@ figcaption {
   padding: 16px 60px;
   text-decoration: none;
   transition: 0.3s;
+  margin-right: 3.2rem;
 }
 
 .exit-btn:hover {
   background-color: #212121;
+}
+
+.overlay2 {
+  width: 100vw;
+  height: 100vh;
+  top: 0px;
+  position: fixed;
+  background: rgba(0, 0, 0, 0.819);
 }
 
 .dev-team {
@@ -484,6 +503,7 @@ figcaption {
   justify-content: space-between;
   height: 23rem;
 }
+
 .dev-team img {
   height: 12rem;
   width: auto;
@@ -500,6 +520,7 @@ figcaption {
   display: flex;
   justify-content: space-around;
 }
+
 .modal-links ul li {
   padding: 0.5rem 2rem;
   font-size: 2rem;
@@ -518,35 +539,37 @@ figcaption {
 ** Scoreboard
 */
 
-.scoreboard{
+.scoreboard {
   width: 40%;
   margin: 2rem auto;
   border: 2px solid var(--color-title-bar);
   border-radius: 1rem;
   overflow: hidden;
-
   letter-spacing: 0.2rem;
 }
 
-.scoreboard-title{
+.scoreboard-title {
   font-size: 2rem;
   background-color: #585858;
   padding: 1rem;
 }
 
-.scoreboard-top10{
+.scoreboard-top10 {
   padding: 0.5rem;
   font-size: 1.2rem;
-
   display: flex;
   justify-content: space-between;
 }
 
-.scoreboard-top10:nth-child(odd){
+.scoreboard-top10:nth-child(odd) {
   background-color: var(--color-title-bar);
 }
 
-.scoreboard-position{
+.scoreboard-top10:nth-child(even) {
+  background-color: var(--color-background);
+}
+
+.scoreboard-position {
   width: 2rem;
   text-align: center;
 }
