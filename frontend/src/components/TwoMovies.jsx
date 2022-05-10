@@ -38,7 +38,7 @@ function TwoMovies({ updateTitleMain }) {
       style={{
         display: "flex",
         justifyContent: "space-around",
-        margin: "1rem 0 ",
+        margin: "4.4rem 0 ",
       }}
     >
       <Affiche
