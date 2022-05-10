@@ -1,16 +1,25 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import chrono from "../services/chrono";
 import chrono5 from "../services/chrono5";
 import { ScoreContext } from "../contexts/scoreContext";
+import { QuestionContext } from "../contexts/QuestionContext";
 
 function ScoreScreen({ updateTitleMain, pseudo }) {
-  const { score } = React.useContext(ScoreContext);
+  const { score, setScore } = React.useContext(ScoreContext);
+  const { setNbQuestion } = React.useContext(QuestionContext);
   let isScoreReady = false;
   let isScoreloaded = false;
+  const navigate = useNavigate();
   chrono5(false);
   chrono(false);
+
+  const handleClickReplay = () => {
+    setScore(0);
+    setNbQuestion(0);
+    navigate("/configuration");
+  };
 
   React.useEffect(() => {
     updateTitleMain(["Score", "scoreScreen"]);
@@ -72,11 +81,15 @@ function ScoreScreen({ updateTitleMain, pseudo }) {
           marginTop: "2rem",
         }}
       >
-        <Link to="/configuration">
-          <button type="button" className="play_button">
-            REJOUER
-          </button>
-        </Link>
+        <button
+          type="button"
+          className="play_button"
+          onClick={() => {
+            handleClickReplay();
+          }}
+        >
+          REJOUER
+        </button>
       </div>
     </>
   );
