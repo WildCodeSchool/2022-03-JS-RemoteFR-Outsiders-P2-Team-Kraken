@@ -14,17 +14,7 @@ import { QuestionContextProvider } from "../contexts/QuestionContext";
 import { SoundContextProvider } from "../contexts/SoundContext";
 import "../App.css";
 
-function Home() {
-  const [titleMain, setTitleMain] = React.useState(["MOVIZZ", "main"]);
-  const updateTitleMain = (newTitle) => {
-    setTitleMain(newTitle);
-  };
-
-  const [pseudo, setPseudo] = React.useState("");
-  const handlePseudoChange = (e) => {
-    setPseudo(e.target.value);
-  };
-
+export default function Home() {
   return (
    <QuestionContextProvider>
      <SoundContextProvider>
@@ -91,5 +81,3 @@ function Home() {
     </QuestionContextProvider>
   );
 }
-
-export default Home;
