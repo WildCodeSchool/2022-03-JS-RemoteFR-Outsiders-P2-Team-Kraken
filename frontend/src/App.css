@@ -589,3 +589,7 @@ figcaption {
 .display-none{
   display: none;
 }
+
+.title_bar_timer{
+  width: 2.5rem;
+}
