@@ -61,6 +61,15 @@ h1,
   justify-content: space-around;
 }
 
+.title_bar_timer{
+  width: 2.5rem;
+}
+
+.title_bar_score{
+  text-align: right;
+  width: 8rem;
+}
+
 h2 {
   font-weight: 200;
   letter-spacing: 0.1rem;
@@ -588,14 +597,4 @@ figcaption {
 
 .display-none{
   display: none;
-}
-
-.title_bar_timer{
-  width: 2.5rem;
-}
-
-.title_bar_score{
-  text-align: right;
-  width: 8rem;
-  border: 2px solid green;
 }
