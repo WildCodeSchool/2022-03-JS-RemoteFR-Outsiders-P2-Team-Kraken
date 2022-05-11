@@ -23,7 +23,9 @@ function TitleBar({ title }) {
           <p>{title[1] === "question2" ? timer : timer5}</p>
         </div>
         <h2>{title[0]}</h2>
-        <p>{score} pt(s)</p>
+        <div className="title_bar_score">
+          <p>{score} pt(s)</p>
+        </div>
       </div>
     );
   }

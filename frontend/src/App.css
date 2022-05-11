@@ -593,3 +593,9 @@ figcaption {
 .title_bar_timer{
   width: 2.5rem;
 }
+
+.title_bar_score{
+  text-align: right;
+  width: 8rem;
+  border: 2px solid green;
+}
