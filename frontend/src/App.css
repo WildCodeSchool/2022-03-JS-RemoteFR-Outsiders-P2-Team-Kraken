@@ -274,7 +274,7 @@ p {
 .select_button {
   margin: 2rem auto;
   background-color: var(--color-background);
-  border: 6px solid var(--color-title-bar);
+  border: 6px solid rgba(255,17,14,0);
   display: inline-block;
   cursor: pointer;
   color: #ffffff;
