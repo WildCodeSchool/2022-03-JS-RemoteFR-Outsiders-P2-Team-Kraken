@@ -225,11 +225,9 @@ p {
 .CardConfig__side--back {
   -webkit-transform: rotateY(180deg);
   transform: rotateY(180deg);
-  background: linear-gradient(
-    -45deg,
-    var(--color-title-bar),
-    var(--color-title-bar)
-  );
+  background: linear-gradient(-45deg,
+      var(--color-title-bar),
+      var(--color-title-bar));
 }
 
 .CardConfig:hover .CardConfig__side--front {
@@ -456,7 +454,6 @@ figcaption {
 
 .rules {
   height: 20rem;
-  padding-top: 6rem;
 }
 
 .exit-modal {
