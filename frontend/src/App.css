@@ -199,7 +199,13 @@ p {
 }
 
 .CardConfig h4 {
-  font-size: 1.7vw;
+  font-size: 3rem;
+  font-weight: 200;
+  margin-top: 3rem;
+}
+
+.affiche h4 {
+  font-size: 2rem;
   font-weight: 200;
   margin-top: 3rem;
 }
