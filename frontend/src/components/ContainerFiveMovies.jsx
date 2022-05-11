@@ -18,28 +18,7 @@ function Container({ updateTitleMain, film1, film2, film3, film4, film5 }) {
   chrono(false);
   chrono5(true);
   const [question, setQuestion] = useState({});
-  const [cards, setCards] = useState([
-    {
-      id: 1,
-      text: "https://www.themoviedb.org/t/p/w300_and_h450_bestv2/k2RJZ6D7h9ca7ZSta6djoheCUiR.jpg",
-    },
-    {
-      id: 2,
-      text: "https://www.themoviedb.org/t/p/w300_and_h450_bestv2/k2RJZ6D7h9ca7ZSta6djoheCUiR.jpg",
-    },
-    {
-      id: 3,
-      text: "https://www.themoviedb.org/t/p/w300_and_h450_bestv2/jBCUJ90BVXIDSLlXUvgQcj6LOHa.jpg",
-    },
-    {
-      id: 4,
-      text: "https://www.themoviedb.org/t/p/w300_and_h450_bestv2/9eiUNsUAw2iwVyMeXNNiNQQad4E.jpg",
-    },
-    {
-      id: 5,
-      text: "https://www.themoviedb.org/t/p/w300_and_h450_bestv2/t9JGg10CW1DzXEdWL54ewkUko6N.jpg",
-    },
-  ]);
+  const [cards, setCards] = useState([{}, {}, {}, {}, {}]);
 
   const { nbQuestion, setNbQuestion } = useContext(QuestionContext);
   useEffect(() => {

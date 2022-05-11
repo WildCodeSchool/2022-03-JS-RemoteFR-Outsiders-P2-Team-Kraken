@@ -27,7 +27,7 @@ function Affiche({ id, titre, affiche, setIdClicked }) {
       </div>
       <div className="CardConfig__side CardConfig__side--back">
         <div className="CardConfig__cta">
-          <div>
+          <div className="affiche">
             <h4>{titre}</h4>
             <div>
               <button
