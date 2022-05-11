@@ -58,16 +58,27 @@ h1,
 .title_bar {
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
+  padding: 0 1rem;
 }
 
 .title_bar_timer{
-  width: 2.5rem;
+  width: 14rem;
+}
+
+.title_bar_timer p{
+font-size: 3rem;
+font-weight: 600;
 }
 
 .title_bar_score{
   text-align: right;
-  width: 8rem;
+  width: 14rem;
+}
+
+.title_bar_score p{
+  font-size: 2rem;
+  text-align: center;
 }
 
 h2 {
