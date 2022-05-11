@@ -32,15 +32,17 @@ function HomeContent() {
       <Carousel />
       <div className="container_button">
         <div className="try">
-          <button type="button" className="btn-sound" onClick={soundOff}>
-            <div>
-              {mute ? (
-                <FontAwesomeIcon className="sound_icon" icon={faVolumeMute} />
-              ) : (
-                <FontAwesomeIcon className="sound_icon" icon={faVolumeHigh} />
-              )}
-            </div>
-          </button>
+          <div className="btn-sound-space">
+            <button type="button" className="btn-sound" onClick={soundOff}>
+              <div>
+                {mute ? (
+                  <FontAwesomeIcon className="sound_icon" icon={faVolumeMute} />
+                ) : (
+                  <FontAwesomeIcon className="sound_icon" icon={faVolumeHigh} />
+                )}
+              </div>
+            </button>
+          </div>
           <Link to="/configuration">
             <button
               type="button"
