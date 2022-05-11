@@ -458,6 +458,11 @@ figcaption {
   height: 20rem;
 }
 
+.pseudo-warning {
+  height: 20rem;
+  padding-top: 6rem;
+}
+
 .exit-modal {
   position: fixed;
   bottom: 0;
