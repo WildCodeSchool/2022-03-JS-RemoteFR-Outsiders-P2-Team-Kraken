@@ -32,15 +32,17 @@ function HomeContent() {
       <Carousel />
       <div className="container_button">
         <div className="try">
-          <button type="button" className="btn-sound" onClick={soundOff}>
-            <div>
-              {mute ? (
-                <FontAwesomeIcon className="sound_icon" icon={faVolumeMute} />
-              ) : (
-                <FontAwesomeIcon className="sound_icon" icon={faVolumeHigh} />
-              )}
-            </div>
-          </button>
+          <div className="btn-sound-space">
+            <button type="button" className="btn-sound" onClick={soundOff}>
+              <div>
+                {mute ? (
+                  <FontAwesomeIcon className="sound_icon" icon={faVolumeMute} />
+                ) : (
+                  <FontAwesomeIcon className="sound_icon" icon={faVolumeHigh} />
+                )}
+              </div>
+            </button>
+          </div>
           <Link to="/configuration">
             <button
               type="button"
@@ -81,24 +83,26 @@ function HomeContent() {
                   <p>Plus tu vas vite, et plus tu marques de points !</p>
                 </div>
 
-                <h2>L&apos;équipe</h2>
-                <div className="dev-team">
-                  <figure>
-                    <img src={Abdallah} alt="Abdallah" />
-                    <figcaption>Abdallah</figcaption>
-                  </figure>
-                  <figure>
-                    <img src={Audren} alt="Audren" />
-                    <figcaption>Audren</figcaption>
-                  </figure>
-                  <figure>
-                    <img src={Kevin} alt="Kevin" />
-                    <figcaption>Kevin</figcaption>
-                  </figure>
-                  <figure>
-                    <img src={Sebastien} alt="Sebastien" />
-                    <figcaption>Sebastien</figcaption>
-                  </figure>
+                <div>
+                  <h2>L&apos;équipe</h2>
+                  <div className="dev-team">
+                    <figure>
+                      <img src={Abdallah} alt="Abdallah" />
+                      <figcaption>Abdallah</figcaption>
+                    </figure>
+                    <figure>
+                      <img src={Audren} alt="Audren" />
+                      <figcaption>Audren</figcaption>
+                    </figure>
+                    <figure>
+                      <img src={Kevin} alt="Kevin" />
+                      <figcaption>Kevin</figcaption>
+                    </figure>
+                    <figure>
+                      <img src={Sebastien} alt="Sebastien" />
+                      <figcaption>Sebastien</figcaption>
+                    </figure>
+                  </div>
                 </div>
 
                 <div className="exit-modal">

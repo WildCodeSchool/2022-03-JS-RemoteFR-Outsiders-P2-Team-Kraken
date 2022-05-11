@@ -58,7 +58,27 @@ h1,
 .title_bar {
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
+  padding: 0 1rem;
+}
+
+.title_bar_timer{
+  width: 14rem;
+}
+
+.title_bar_timer p{
+font-size: 3rem;
+font-weight: 600;
+}
+
+.title_bar_score{
+  text-align: right;
+  width: 14rem;
+}
+
+.title_bar_score p{
+  font-size: 2rem;
+  text-align: center;
 }
 
 h2 {
@@ -109,6 +129,10 @@ p {
   color: white;
   border: none;
   font-size: 3rem;
+}
+
+.btn-sound-space{
+  width: 6rem;
 }
 
 /*******************************************/
@@ -186,7 +210,13 @@ p {
 }
 
 .CardConfig h4 {
-  font-size: 1.7vw;
+  font-size: 3rem;
+  font-weight: 200;
+  margin-top: 3rem;
+}
+
+.affiche h4 {
+  font-size: 2rem;
   font-weight: 200;
   margin-top: 3rem;
 }
@@ -255,7 +285,7 @@ p {
 .select_button {
   margin: 2rem auto;
   background-color: var(--color-background);
-  border: 6px solid var(--color-title-bar);
+  border: 6px solid rgba(255,17,14,0);
   display: inline-block;
   cursor: pointer;
   color: #ffffff;
@@ -455,6 +485,10 @@ figcaption {
 }
 
 .rules {
+  height: 20rem;
+}
+
+.pseudo-warning {
   height: 20rem;
   padding-top: 6rem;
 }

@@ -19,9 +19,13 @@ function TitleBar({ title }) {
   if (title[1] === "question2" || title[1] === "question5") {
     return (
       <div className="title_bar">
-        <p>{title[1] === "question2" ? timer : timer5}</p>
+        <div className="title_bar_timer">
+          <p>{title[1] === "question2" ? timer : timer5}</p>
+        </div>
         <h2>{title[0]}</h2>
-        <p>{score} pt(s)</p>
+        <div className="title_bar_score">
+          <p>{score} pt(s)</p>
+        </div>
       </div>
     );
   }
