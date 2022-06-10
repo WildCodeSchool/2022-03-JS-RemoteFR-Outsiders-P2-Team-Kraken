@@ -9,6 +9,7 @@ import hoverBtn from "../services/hoverBtn";
 import { QuestionContext } from "../contexts/QuestionContext";
 
 function ScoreScreen({ updateTitleMain, pseudo }) {
+  const API = "https://movizz-backend.remote-fr-3.wilders.dev";
   const { mute } = React.useContext(SoundContext);
   const { score, setScore } = React.useContext(ScoreContext);
   const { setNbQuestion } = React.useContext(QuestionContext);
@@ -32,7 +33,7 @@ function ScoreScreen({ updateTitleMain, pseudo }) {
   const [tableScore, setTableScore] = React.useState([]);
   React.useEffect(() => {
     axios
-      .post("http://localhost:5000/players", {
+      .post(`${API}/players`, {
         pseudo,
         score,
       })
@@ -45,7 +46,7 @@ function ScoreScreen({ updateTitleMain, pseudo }) {
   }, [isScoreReady]);
 
   React.useEffect(() => {
-    axios.get("http://localhost:5000/players/top10").then((resp) => {
+    axios.get(`${API}/players/top10`).then((resp) => {
       setTableScore(resp.data);
     });
   }, [isScoreloaded]);
